@@ -1,4 +1,4 @@
-package options;
+package ui.options;
 
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;

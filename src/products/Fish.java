@@ -1,10 +1,16 @@
 package products;
 
-public class Fish extends FoodProduct{
+public class Fish extends FoodProduct implements Movable{
+    private String fishType;
 
-    public Fish(int[] location, double price, int quantity, double expirationNum, double expirationRate) {
-        super(location, price, quantity, expirationNum, expirationRate);
-        //TODO Auto-generated constructor stub
+    public Fish(int[] location, double price, int quantity, double expirationPercent, double expirationRate, String fishType) {
+        super(location, price, quantity, expirationPercent, expirationRate);
+        this.fishType = fishType;
+    }
+
+    @Override
+    public void move(int[] location) {
+       System.out.println("This product is not movable");
     }
     
 }

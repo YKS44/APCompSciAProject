@@ -1,10 +1,17 @@
 package products;
 
-public class Drink extends FoodProduct{
+public class Drink extends FoodProduct implements Movable{
 
-    public Drink(int[] location, double price, int quantity, double expirationNum, double expirationRate) {
-        super(location, price, quantity, expirationNum, expirationRate);
-        //TODO Auto-generated constructor stub
+    private String drinkType;
+
+    public Drink(int[] location, double price, int quantity, double expirationPercent, double expirationRate, String drinkType) {
+        super(location, price, quantity, expirationPercent, expirationRate);
+        this.drinkType = drinkType;
+    }
+
+    @Override
+    public void move(int[] location) {
+
     }
     
 }

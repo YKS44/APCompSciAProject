@@ -1,4 +1,4 @@
-package options;
+package ui.options;
 
 import java.util.ArrayList;
 import java.util.Arrays;

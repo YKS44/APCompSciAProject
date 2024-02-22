@@ -2,12 +2,12 @@ package products;
 
 public abstract class FoodProduct extends Product{
 
-    protected double expirationNum;
+    protected double expiredPercent;
     protected double expirationRate;
 
-    public FoodProduct(int[] location, double price, int quantity, double expirationNum, double expirationRate) {
+    public FoodProduct(int[] location, double price, int quantity, double expirationPercent, double expirationRate) {
         super(location, price, quantity);
-        this.expirationNum = expirationNum;
+        this.expiredPercent = expirationPercent;
         this.expirationRate = expirationRate;
     }
 
