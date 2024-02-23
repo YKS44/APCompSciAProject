@@ -10,8 +10,7 @@ public class Snack extends FoodProduct implements Movable{
 
     @Override
     public void move(int[] location) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'move'");
+        
     }
     
 }

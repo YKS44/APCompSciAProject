@@ -15,14 +15,12 @@ public class Medicine extends Product implements Movable{
 
     @Override
     public void purchase() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'purchase'");
+        
     }
 
     @Override
     public double getDiscount() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDiscount'");
+        return 0.0;
     }
     
 }

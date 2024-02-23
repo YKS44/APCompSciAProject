@@ -10,7 +10,7 @@ public class Meat extends FoodProduct implements Movable{
 
     @Override
     public void move(int[] location) {
-
+        
     }
     
 }

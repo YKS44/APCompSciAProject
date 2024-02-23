@@ -3,7 +3,7 @@ package ui;
 import java.util.HashMap;
 
 import ui.options.Action;
-import ui.options.Options;
+import ui.options.Page;
 
 public class CommandManager{
     private static CommandManager instance;
@@ -18,7 +18,7 @@ public class CommandManager{
         commandMap.put(name,action);
     }
 
-    public void invokeCommand(String name, Options page){
+    public void invokeCommand(String name, Page page){
         //If the UIManager queries a command that is registered in the map, then execute it.
         if(commandMap.containsKey(name)){
             commandMap.get(name).execute();

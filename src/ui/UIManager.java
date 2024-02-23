@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import ui.options.Option;
 import ui.options.OptionPath;
-import ui.options.Options;
+import ui.options.Page;
 
 public class UIManager{
     private final boolean canClearScreen = true; //for testing purposes
@@ -23,7 +23,7 @@ public class UIManager{
     private HashMap<String, String> colorMap = new HashMap<>();
 
     
-    private Options currentPage;
+    private Page currentPage;
     private String message1;
     private String message2;
 
@@ -57,9 +57,9 @@ public class UIManager{
     } 
 
 
-    public List<Options> prev = new ArrayList<>();
+    public List<Page> prev = new ArrayList<>();
 
-    public void sendAndReceive(Options options){
+    public void sendAndReceive(Page options){
         //inserts the current page into the previous page list so that the user can trace back their visited pages
         if(currentPage != null && !prev.contains(currentPage) && !prev.isEmpty() && prev.get(prev.size()-1) != currentPage){
             prev.add(currentPage);
@@ -82,7 +82,7 @@ public class UIManager{
                 prev.add(options);
                 selected.getAction().execute();
             }else{
-                setMessage1(getColoredText("red", "This option is currently locked."));
+                setMessage1(getColoredText("red", "This option is not accessible."));
                 sendAndReceive(options);
             }
             
@@ -119,8 +119,8 @@ public class UIManager{
         }
     }
 
-    public void printOptions(Options options){
-        System.out.print(getColoredText("green", "options.getTitle()"));
+    public void printOptions(Page options){
+        System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Money: $%d\n\n"),options.getTitle());
 
         for(int i = 0; i < options.getOptions().size(); i++){
             Option option = options.getOptions().get(i);
@@ -129,7 +129,7 @@ public class UIManager{
             if(option.getIsUnlocked() == true){
                 System.out.println((i+1) + ". " + title);
             }else{
-                System.out.println((i+1) + ". " + getColoredText("red", "[LOCKED]"));
+                System.out.println((i+1) + ". " + getColoredText("red", "[NOT ACCESSIBLE]"));
             }
             
         }
@@ -169,7 +169,7 @@ public class UIManager{
         return colorMap.get(color);
     }
 
-    public Options getCurrentPage()
+    public Page getCurrentPage()
     {
         return currentPage;
     }
@@ -180,7 +180,7 @@ public class UIManager{
         cmd.addCommand("h", () -> sendAndReceive(OptionPath.mainPage));
         cmd.addCommand("b", () -> {
             if(!prev.isEmpty()){
-                Options back = prev.get(prev.size() - 1);
+                Page back = prev.get(prev.size() - 1);
                 prev.remove(prev.size() - 1);
                 currentPage = null;
                 sendAndReceive(back);
