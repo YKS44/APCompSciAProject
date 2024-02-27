@@ -1,10 +1,12 @@
-package ui;
+package managers;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
+import administration.Customer;
+import administration.Employee;
 import ui.options.Option;
 import ui.options.OptionPath;
 import ui.options.Page;
@@ -120,7 +122,13 @@ public class UIManager{
     }
 
     public void printOptions(Page options){
-        System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Money: $%d\n\n"),options.getTitle());
+        if(LoginManager.getInstance().getCurrentlyLoggedIn() instanceof Customer){
+            Customer customer = (Customer) LoginManager.getInstance().getCurrentlyLoggedIn();
+            System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Money: $%d\n\n"),options.getTitle(), customer.getMoneyLeft());
+        }else{
+            Employee employee = (Employee) LoginManager.getInstance().getCurrentlyLoggedIn();
+            System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Level: $%d\n\n"),options.getTitle(), employee.getEmployeeLevel());
+        }
 
         for(int i = 0; i < options.getOptions().size(); i++){
             Option option = options.getOptions().get(i);
