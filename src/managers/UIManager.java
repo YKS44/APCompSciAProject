@@ -124,10 +124,10 @@ public class UIManager{
     public void printOptions(Page options){
         if(LoginManager.getInstance().getCurrentlyLoggedIn() instanceof Customer){
             Customer customer = (Customer) LoginManager.getInstance().getCurrentlyLoggedIn();
-            System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Money: $%d\n\n"),options.getTitle(), customer.getMoneyLeft());
+            System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Money: $%.2f\n\n"),options.getTitle(), customer.getMoneyLeft());
         }else{
             Employee employee = (Employee) LoginManager.getInstance().getCurrentlyLoggedIn();
-            System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Level: $%d\n\n"),options.getTitle(), employee.getEmployeeLevel());
+            System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Level: %s\n\n"),options.getTitle(), employee.getEmployeeLevel());
         }
 
         for(int i = 0; i < options.getOptions().size(); i++){

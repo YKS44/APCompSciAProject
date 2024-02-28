@@ -1,8 +1,7 @@
-import managers.UIManager;
-import ui.options.OptionPath;
+import ui.Initializer;
 
 public class Main {
-    public static void main(String[] args) {
-        UIManager.getInstance().sendAndReceive(OptionPath.mainPage);
+    public static void main(String[] args) throws InterruptedException {
+        Initializer.getInstance().initializeStore();
     }
 }
