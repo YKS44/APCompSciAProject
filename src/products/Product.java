@@ -17,6 +17,6 @@ public abstract class Product {
     public int getQuantity(){return quantity;}
     public void setQuantity(int quantity){this.quantity = quantity;}
 
-    public abstract void purchase();
+    public void purchase(){}
     public abstract double getDiscount();
 }

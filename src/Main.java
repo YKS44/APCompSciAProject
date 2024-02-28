@@ -1,4 +1,3 @@
-import administration.Account;
 import managers.UIManager;
 import ui.options.OptionPath;
 
