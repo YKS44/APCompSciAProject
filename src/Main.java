@@ -1,7 +1,7 @@
-import ui.Initializer;
+import ui.Game;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
-        Initializer.getInstance().initializeStore();
+    public static void main(String[] args){
+        Game.getInstance().initializeStore();
     }
 }
