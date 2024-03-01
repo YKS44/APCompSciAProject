@@ -20,5 +20,10 @@ public abstract class FoodProduct extends Product{
     public double getDiscount() {
         return 0.0; 
     }
+
+    @Override
+    public String toString(){
+        return "";
+    }
     
 }

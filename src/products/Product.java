@@ -1,6 +1,6 @@
 package products;
 
-public abstract class Product {
+public abstract class Product implements Movable{
     protected int[] location = new int[2];
     protected double price;
     protected int quantity;

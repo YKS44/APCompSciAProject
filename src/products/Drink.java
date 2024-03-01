@@ -1,6 +1,6 @@
 package products;
 
-public class Drink extends FoodProduct implements Movable{
+public class Drink extends FoodProduct{
 
     private String drinkType;
 

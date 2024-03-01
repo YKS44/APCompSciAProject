@@ -7,5 +7,11 @@ public class Dairy extends FoodProduct{
         super(location, price, quantity, price, price);
         this.dairyType = dairyType;
     }
+
+    @Override
+    public boolean move(int[] location) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'move'");
+    }
     
 }

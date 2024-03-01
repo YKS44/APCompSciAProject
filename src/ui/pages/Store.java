@@ -97,8 +97,13 @@ public class Store {
             if(input.equalsIgnoreCase("exit")){
                 closeStorePage();
             }else if(splitInput.length == 2){
-                int[] loc = convertToLocation(splitInput[1]);   
-                message = aisle[loc[0]][loc[1]].getClass().toString();
+                if(splitInput[0].equals("info")){
+                    int[] loc = convertToLocation(splitInput[1]);   
+                    message = aisle[loc[0]][loc[1]].getClass().toString();
+                }else if(splitInput[0].equals("add")){
+                    int[] loc = convertToLocation(splitInput[1]);   
+                    aisle[loc[0]][loc[1]] = new Meat(loc, 100.0, 100, 100.0, 100.0, input);
+                }
             }else if(splitInput.length == 3){
                 if(splitInput[0].equals("move")){
                     int[] from = convertToLocation(splitInput[1]);

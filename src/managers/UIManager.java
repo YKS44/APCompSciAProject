@@ -162,7 +162,7 @@ public class UIManager{
     private void setUpCommand(){
         CommandManager cmd = CommandManager.getInstance();
 
-        cmd.addCommand("h", (arg) -> sendAndReceive(OptionPath.mainPage));
+        cmd.addCommand("h", (arg) -> {sendAndReceive(OptionPath.mainPage);return true;});
         cmd.addCommand("b", (arg) -> {
             if(!prev.isEmpty()){
                 Page back = prev.get(prev.size() - 1);
@@ -172,6 +172,7 @@ public class UIManager{
             }else{
                 sendAndReceive(OptionPath.mainPage);
             }
+            return true;
         });
     }
 }

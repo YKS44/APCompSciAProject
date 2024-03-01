@@ -7,5 +7,11 @@ public class Vegetable extends FoodProduct{
         super(location, price, quantity, expirationPercent, expirationRate);
         this.vegetableType = vegetableType;
     }
+
+    @Override
+    public boolean move(int[] location) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'move'");
+    }
     
 }

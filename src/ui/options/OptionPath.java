@@ -18,7 +18,7 @@ public class OptionPath {
     private static Option[] mainOptions = {
         new Option("Temp", ()->{uim.setMessage1("Hi");}, "Temp"),
         new Option("Go back to login", () -> {game.goBackToLoginPage();}, "Goes back to login page"),
-        new Option("Open store page", ()->{Store.getInstance().openStorePage();},"Opens the store page")
+        new Option("Open store page", () -> {Store.getInstance().openStorePage();},"Opens the store page")
     };
 
     public static Page mainPage = Page.buildPage(mainOptions, "Main Page");
