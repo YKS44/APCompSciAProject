@@ -9,8 +9,9 @@ public class Fish extends FoodProduct implements Movable{
     }
 
     @Override
-    public void move(int[] location) {
+    public boolean move(int[] location) {
        System.out.println("This product is not movable");
+       return false;
     }
     
 }

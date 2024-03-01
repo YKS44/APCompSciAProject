@@ -9,8 +9,8 @@ public class Snack extends FoodProduct implements Movable{
     }
 
     @Override
-    public void move(int[] location) {
-        
+    public boolean move(int[] location) {
+        return false;
     }
     
 }

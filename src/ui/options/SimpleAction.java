@@ -1,5 +1,5 @@
 package ui.options;
 
-public interface Action {
+public interface SimpleAction {
     void execute();
 }

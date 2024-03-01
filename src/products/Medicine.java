@@ -9,8 +9,8 @@ public class Medicine extends Product implements Movable{
     }
 
     @Override
-    public void move(int[] location) {
-
+    public boolean move(int[] location) {
+        return false;
     }
 
     @Override

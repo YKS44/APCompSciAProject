@@ -7,13 +7,13 @@ public class Option{
     private String title;
     private Supplier<String> description;
     private Supplier<String> lockDescription;
-	private Action action;
+	private SimpleAction action;
     private BooleanSupplier isUnlockedSupplier;
 
     /**
      * Option with a lock condition
      */
-	public Option(String title, Action action, BooleanSupplier isUnlocked, String lockDescription, String description){
+	public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, String lockDescription, String description){
 		this.title = title;
 		this.action = action;
         this.isUnlockedSupplier = isUnlocked;
@@ -24,7 +24,7 @@ public class Option{
     /**
      * Normal option
      */
-    public Option(String title, Action action, String description){
+    public Option(String title, SimpleAction action, String description){
         this.title = title;
         this.action = action;
         this.description = ()->description;
@@ -35,7 +35,7 @@ public class Option{
     /**
      * Bought once option with a lock condition
      */
-    public Option(String title, Action action, BooleanSupplier isUnlocked, Supplier<String> lockDescription, String description)
+    public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, Supplier<String> lockDescription, String description)
     {
         this.title = title;
         this.action = action;
@@ -48,7 +48,7 @@ public class Option{
     	return title;
     }
 
-    public Action getAction(){
+    public SimpleAction getAction(){
 	    return action;   
     }
 

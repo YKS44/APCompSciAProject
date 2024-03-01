@@ -162,8 +162,8 @@ public class UIManager{
     private void setUpCommand(){
         CommandManager cmd = CommandManager.getInstance();
 
-        cmd.addCommand("h", () -> sendAndReceive(OptionPath.mainPage));
-        cmd.addCommand("b", () -> {
+        cmd.addCommand("h", (arg) -> sendAndReceive(OptionPath.mainPage));
+        cmd.addCommand("b", (arg) -> {
             if(!prev.isEmpty()){
                 Page back = prev.get(prev.size() - 1);
                 prev.remove(prev.size() - 1);

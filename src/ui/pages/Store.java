@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 import managers.UIManager;
 import products.Meat;
+import products.Movable;
 import products.Product;
 
 public class Store {
@@ -16,6 +17,8 @@ public class Store {
     private final int longestSectionName;
 
     private boolean endStorePage = false;
+
+    private String message = "";
 
     private Store(){
         int tempMax = 0;
@@ -85,19 +88,50 @@ public class Store {
             uim.clearScreen();
             printStore();
 
-            System.out.print("\nEnter a command: ");
+            System.out.println("\n" + message);
+            message = "";
+            System.out.print("Enter a command: ");
             String input = scan.nextLine();
+            String[] splitInput = input.split(" ");
 
             if(input.equalsIgnoreCase("exit")){
                 closeStorePage();
+            }else if(splitInput.length == 2){
+                int[] loc = convertToLocation(splitInput[1]);   
+                message = aisle[loc[0]][loc[1]].getClass().toString();
+            }else if(splitInput.length == 3){
+                if(splitInput[0].equals("move")){
+                    int[] from = convertToLocation(splitInput[1]);
+                    int[] to   = convertToLocation(splitInput[2]);
+
+                    if(aisle[from[0]][from[1]] != null){
+                        ((Movable)aisle[from[0]][from[1]]).move(to);
+                    }else{
+                        message = "That's empty";
+                    }
+                }
+            }else{
+                message = "Unknown command";
             }
         }
-
+        scan.close();
         HomeScreen.getInstance().startHomeScreen();
     }
 
     public void closeStorePage(){
         endStorePage = true;
+        HomeScreen.getInstance().startHomeScreen();
+    }
+
+    public int[] convertToLocation(String location) {
+        String[] numbersArray = location.split(",");
+        int[] intArray = new int[numbersArray.length];
+
+        for (int i = 0; i < numbersArray.length; i++) {
+            intArray[i] = Integer.parseInt(numbersArray[i]);
+        }
+
+        return intArray;
     }
 
     public static Store getInstance(){

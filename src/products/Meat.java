@@ -1,5 +1,7 @@
 package products;
 
+import ui.pages.Store;
+
 public class Meat extends FoodProduct implements Movable{
     private String meatType;
 
@@ -9,8 +11,13 @@ public class Meat extends FoodProduct implements Movable{
     }
 
     @Override
-    public void move(int[] location) {
-        
+    public boolean move(int[] location) {
+        if(Store.getInstance().addProduct(location, this)){
+            Store.getInstance().removeProduct(this.location);
+            this.location = location;
+            return true;
+        }
+        return false;
     }
     
 }
