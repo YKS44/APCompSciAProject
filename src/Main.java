@@ -1,7 +1,7 @@
-import ui.Game;
+import ui.pages.HomeScreen;
 
 public class Main {
     public static void main(String[] args){
-        Game.getInstance().initializeStore();
+        HomeScreen.getInstance().initializeStore();
     }
 }

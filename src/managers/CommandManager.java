@@ -1,6 +1,7 @@
 package managers;
 
 import java.util.HashMap;
+import java.util.function.Consumer;
 
 import ui.options.Action;
 import ui.options.Page;
@@ -9,6 +10,7 @@ public class CommandManager{
     private static CommandManager instance;
 
     private HashMap<String,Action> commandMap;
+    // private HashMap<String,Consumer<String[]>> commandMap;
 
     private CommandManager(){
         commandMap = new HashMap<>();

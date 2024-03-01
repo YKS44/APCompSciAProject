@@ -1,4 +1,4 @@
-package ui;
+package ui.pages;
 
 import java.util.Scanner;
 
@@ -6,8 +6,8 @@ import managers.LoginManager;
 import managers.UIManager;
 import ui.options.OptionPath;
 
-public class Game {
-    private static Game instance = null;
+public class HomeScreen {
+    private static HomeScreen instance = null;
 
     private boolean endProgram = false;
     private boolean goBackToLoginPage = false;
@@ -34,8 +34,8 @@ public class Game {
                 System.out.println("\nHomepage loading...");
 
                 try{
-                    Thread.sleep(2000);
-                    startLoop();
+                    Thread.sleep(1000);
+                    startHomeScreen();
                 } catch(InterruptedException e){
                     e.printStackTrace();
                 }
@@ -56,7 +56,7 @@ public class Game {
         endProgram = true;
     }
 
-    private void startLoop(){
+    public void startHomeScreen(){
         endProgram = false;
         while(!endProgram){
             uim.clearScreen();
@@ -69,9 +69,9 @@ public class Game {
         }
     }
 
-    public static Game getInstance(){
+    public static HomeScreen getInstance(){
         if(instance == null){
-            instance = new Game();
+            instance = new HomeScreen();
         }
         return instance;
     }

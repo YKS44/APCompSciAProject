@@ -3,9 +3,11 @@ package administration;
 public class Customer implements Account{
 
     private double moneyLeft;
+    private AccountLevel level;
 
     public Customer(double moneyLeft){
         this.moneyLeft = moneyLeft;
+        level = AccountLevel.CUSTOMER;
     }
 
     public double getMoneyLeft(){
@@ -31,5 +33,11 @@ public class Customer implements Account{
     public void setPrice(double price) {
         
     }
-    
+
+    @Override
+    public AccountLevel getAccountLevel() {
+        return level;
+    }
 }
+
+

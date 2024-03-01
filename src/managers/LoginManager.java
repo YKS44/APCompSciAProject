@@ -3,9 +3,9 @@ package managers;
 import java.util.HashMap;
 
 import administration.Account;
+import administration.Account.AccountLevel;
 import administration.Customer;
 import administration.Employee;
-import administration.Employee.EmployeeLevel;
 
 public class LoginManager {
     private static LoginManager instance = null;
@@ -14,7 +14,7 @@ public class LoginManager {
 
     private LoginManager(){
         loginMap.put("customer", new Customer(100.0));
-        loginMap.put("employee", new Employee(EmployeeLevel.BOSS));
+        loginMap.put("employee", new Employee(AccountLevel.BOSS));
     }
 
     private Account currentlyLogin;

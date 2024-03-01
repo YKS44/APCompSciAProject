@@ -1,23 +1,12 @@
 package administration;
 
 public class Employee implements Account{
+    private AccountLevel level;
 
-    public enum EmployeeLevel{
-        INTERN,
-        WORKER,
-        BOSS
-    }
-
-    private EmployeeLevel level;
-
-    public Employee(EmployeeLevel level){
+    public Employee(AccountLevel level){
         this.level = level;
     }
-
-    public EmployeeLevel getEmployeeLevel(){
-        return level;
-    }
-
+    
     @Override
     public void move() {
         
@@ -36,6 +25,11 @@ public class Employee implements Account{
     @Override
     public void setPrice(double price) {
         
+    }
+
+    @Override
+    public AccountLevel getAccountLevel() {
+        return level;
     }
     
 }

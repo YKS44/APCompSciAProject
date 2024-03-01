@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
-import administration.Customer;
-import administration.Employee;
 import ui.options.Option;
 import ui.options.OptionPath;
 import ui.options.Page;
@@ -68,7 +66,7 @@ public class UIManager{
         }
         currentPage = options;
 
-        printOptions(options);
+        options.printPage();
 
         String input = scanner.nextLine();
         
@@ -121,35 +119,6 @@ public class UIManager{
         }
     }
 
-    public void printOptions(Page options){
-        if(LoginManager.getInstance().getCurrentlyLoggedIn() instanceof Customer){
-            Customer customer = (Customer) LoginManager.getInstance().getCurrentlyLoggedIn();
-            System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Money: $%.2f\n\n"),options.getTitle(), customer.getMoneyLeft());
-        }else{
-            Employee employee = (Employee) LoginManager.getInstance().getCurrentlyLoggedIn();
-            System.out.printf(getColoredText("green", "%-31s ")+ getColoredText("cyan", "Level: %s\n\n"),options.getTitle(), employee.getEmployeeLevel());
-        }
-
-        for(int i = 0; i < options.getOptions().size(); i++){
-            Option option = options.getOptions().get(i);
-            String title = option.getTitle();
-
-            if(option.getIsUnlocked() == true){
-                System.out.println((i+1) + ". " + title);
-            }else{
-                System.out.println((i+1) + ". " + getColoredText("red", "[NOT ACCESSIBLE]"));
-            }
-            
-        }
-
-        System.out.println("");
-
-        System.out.println(message1);
-        System.out.println(message2);
-
-        message1 = "";
-    }
-
     public void clearScreen(){
         if(canClearScreen){
             System.out.print("\033[H\033[2J");
@@ -171,6 +140,14 @@ public class UIManager{
 
     public void setMessage2(String message){
         this.message2 = message;
+    }
+
+    public String getMessage1(){
+        return message1;
+    }
+
+    public String getMessage2(){
+        return message2;
     }
 
     private String getColor(String color){
