@@ -4,10 +4,9 @@ import java.util.Scanner;
 
 import managers.LoginManager;
 import managers.UIManager;
-import ui.options.OptionPath;
 
-public class HomeScreen {
-    private static HomeScreen instance = null;
+public class LoginScreen {
+    private static LoginScreen instance = null;
 
     private boolean endProgram = false;
     private boolean goBackToLoginPage = false;
@@ -59,8 +58,7 @@ public class HomeScreen {
     public void startHomeScreen(){
         endProgram = false;
         while(!endProgram){
-            uim.clearScreen();
-            uim.sendAndReceive(OptionPath.mainPage);
+            uim.printPage(MainPage.getInstance());
         }
 
         if(goBackToLoginPage){
@@ -69,9 +67,9 @@ public class HomeScreen {
         }
     }
 
-    public static HomeScreen getInstance(){
+    public static LoginScreen getInstance(){
         if(instance == null){
-            instance = new HomeScreen();
+            instance = new LoginScreen();
         }
         return instance;
     }

@@ -1,12 +1,16 @@
 package ui.pages;
 import java.util.Scanner;
 
+import administration.Customer;
+import administration.Employee;
+import managers.CommandManager;
+import managers.LoginManager;
 import managers.UIManager;
 import products.Meat;
 import products.Movable;
 import products.Product;
 
-public class Store {
+public class Store extends AbstractPage{
 
     private static Store instance = null;
 
@@ -28,6 +32,8 @@ public class Store {
             }
         }
         longestSectionName = tempMax;
+
+        setUpCommand();
 
         aisle[0][0] = new Meat(new int[]{0,0}, 100.0, 3, 0.5, 0.1, "Pork");
     }
@@ -65,7 +71,54 @@ public class Store {
         }
     }
 
-    private void printStore(){
+
+    public void closeStorePage(){
+        endStorePage = true;
+        LoginScreen.getInstance().startHomeScreen();
+    }
+
+    private int[] convertToLocation(String location) {
+        String[] numbersArray = location.split(",");
+        int[] intArray = new int[numbersArray.length];
+
+        for (int i = 0; i < numbersArray.length; i++) {
+            intArray[i] = Integer.parseInt(numbersArray[i]);
+        }
+
+        return intArray;
+    }
+
+    private Product getProductAt(int[] loc){
+        
+        try{
+            Product product = aisle[loc[0]][loc[1]];
+            return product;
+        }catch(IndexOutOfBoundsException e){
+            this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+            return null;
+        }
+    }
+
+    public static Store getInstance(){
+        if(instance == null){
+            instance = new Store();
+        }
+        return instance;
+    }
+
+    @Override
+    public void update(){
+        if(LoginManager.getInstance().getCurrentlyLoggedIn() instanceof Customer){
+            Customer customer = (Customer) LoginManager.getInstance().getCurrentlyLoggedIn();
+            this.setHeading(String.format(uim.getColoredText("green", "%-31s") + uim.getColoredText("cyan", "Money: $%.2f"),"Main Page", customer.getMoneyLeft()));
+        }else if(LoginManager.getInstance().getCurrentlyLoggedIn() instanceof Employee){
+            Employee employee = (Employee) LoginManager.getInstance().getCurrentlyLoggedIn();
+            this.setHeading(String.format(uim.getColoredText("green", "%-31s") + uim.getColoredText("cyan", "Level: %s"),"Main Page", employee.getAccountLevel()));
+        }
+    }
+
+    @Override
+    public void printPage() {
         for(int i = 0; i < aisle.length; i++){
             System.out.printf("%-"+longestSectionName+"s", section[i]);
             for(int j = 0; j < aisle[i].length; j++){
@@ -79,70 +132,25 @@ public class Store {
         }
     }
 
-    public void openStorePage(){ 
-        endStorePage = false;
-        HomeScreen.getInstance().endProgram();
+    @Override
+    protected void setUpCommand() {
+        CommandManager cmd = CommandManager.getInstance();
 
-        Scanner scan = new Scanner(System.in);
-        while(!endStorePage){
-            uim.clearScreen();
-            printStore();
+        cmd.addCommand(getClass().getName(), "exit", (arg) -> {
+            closeStorePage();
+        });
 
-            System.out.println("\n" + message);
-            message = "";
-            System.out.print("Enter a command: ");
-            String input = scan.nextLine();
-            String[] splitInput = input.split(" ");
+        cmd.addCommand(getClass().getName(), "info", (arg) -> {
+            if(arg.length == 1){
+                try{
+                    int[] loc = convertToLocation(arg[0]);
+                    this.setMessage1(getProductAt(loc).toString());
 
-            if(input.equalsIgnoreCase("exit")){
-                closeStorePage();
-            }else if(splitInput.length == 2){
-                if(splitInput[0].equals("info")){
-                    int[] loc = convertToLocation(splitInput[1]);   
-                    message = aisle[loc[0]][loc[1]].getClass().toString();
-                }else if(splitInput[0].equals("add")){
-                    int[] loc = convertToLocation(splitInput[1]);   
-                    aisle[loc[0]][loc[1]] = new Meat(loc, 100.0, 100, 100.0, 100.0, input);
+                }catch(Exception e){
+                    this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+                    uim.printPage(getInstance());
                 }
-            }else if(splitInput.length == 3){
-                if(splitInput[0].equals("move")){
-                    int[] from = convertToLocation(splitInput[1]);
-                    int[] to   = convertToLocation(splitInput[2]);
-
-                    if(aisle[from[0]][from[1]] != null){
-                        ((Movable)aisle[from[0]][from[1]]).move(to);
-                    }else{
-                        message = "That's empty";
-                    }
-                }
-            }else{
-                message = "Unknown command";
             }
-        }
-        scan.close();
-        HomeScreen.getInstance().startHomeScreen();
-    }
-
-    public void closeStorePage(){
-        endStorePage = true;
-        HomeScreen.getInstance().startHomeScreen();
-    }
-
-    public int[] convertToLocation(String location) {
-        String[] numbersArray = location.split(",");
-        int[] intArray = new int[numbersArray.length];
-
-        for (int i = 0; i < numbersArray.length; i++) {
-            intArray[i] = Integer.parseInt(numbersArray[i]);
-        }
-
-        return intArray;
-    }
-
-    public static Store getInstance(){
-        if(instance == null){
-            instance = new Store();
-        }
-        return instance;
+        });
     }
 }

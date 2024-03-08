@@ -3,14 +3,14 @@ package managers;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.function.Predicate;
+import java.util.function.Consumer;
 
-import ui.options.Page;
+import ui.pages.AbstractPage;
 
 public class CommandManager{
     private static CommandManager instance;
 
-    private HashMap<String,Predicate<String[]>> commandMap;
+    private HashMap<String,HashMap<String,Consumer<String[]>>> commandMap;
     private final Scanner scan;
 
     private CommandManager(){
@@ -18,33 +18,31 @@ public class CommandManager{
         scan = new Scanner(System.in);
     }
 
-    public void addCommand(String name, Predicate<String[]> action){
-        commandMap.put(name,action);
+    public void addCommand(String key, String name, Consumer<String[]> action){
+        if(commandMap.containsKey(key)){
+            commandMap.get(key).put(name,action);
+        }else{
+            HashMap<String,Consumer<String[]>> newMap = new HashMap<>();
+            newMap.put(name,action);
+            commandMap.put(key, newMap);
+        }
     }
 
-
-    /**
-     * Handles command inputs from the user.
-     * 
-     * @return True if the command was executed successfully. False otherwise.
-     */
-    public void handleCommandInputs(){
+    public void handleCommand(AbstractPage page){
         String input = scan.nextLine();
 
-
-    }
-
-    public void invokeCommand(String input, Page page){
         String[] splitInput = input.split(" ");
-        if(commandMap.containsKey(splitInput[0])){
+
+        if(commandMap.containsKey(page.getClass().getName()) && commandMap.get(page.getClass().getName()).containsKey(splitInput[0])){
             if(splitInput.length >= 2){
-                commandMap.get(splitInput[0]).test(Arrays.copyOfRange(splitInput,1,splitInput.length));
+                commandMap.get(page.getClass().getName()).get(splitInput[0]).accept(Arrays.copyOfRange(splitInput,1,splitInput.length));
             }else{
-                commandMap.get(splitInput[0]).test(new String[] {splitInput[0]});
+                commandMap.get(page.getClass().getName()).get(splitInput[0]).accept(new String[] {splitInput[0]});
             }
         }else{
-            UIManager.getInstance().setMessage1(UIManager.getInstance().getColoredText("red", "Incorrect Command"));
-            UIManager.getInstance().sendAndReceive(page);
+            page.setMessage1(UIManager.getInstance().getColoredText("red", "Incorrect Command"));
+
+            UIManager.getInstance().printPage(page);
         }
     }
 

@@ -1,7 +1,19 @@
-import ui.pages.HomeScreen;
+import managers.CommandManager;
+import managers.LoginManager;
+import managers.UIManager;
+import ui.pages.LoginScreen;
+import ui.pages.MainPage;
+import ui.pages.Store;
 
 public class Main {
     public static void main(String[] args){
-        HomeScreen.getInstance().initializeStore();
+        CommandManager.getInstance();
+        LoginManager.getInstance();
+        UIManager.getInstance();
+        LoginScreen.getInstance();
+        MainPage.getInstance();
+        Store.getInstance();
+
+        LoginScreen.getInstance().initializeStore();
     }
 }

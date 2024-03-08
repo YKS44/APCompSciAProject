@@ -1,13 +1,9 @@
 package managers;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
 
-import ui.options.Option;
-import ui.options.OptionPath;
-import ui.options.Page;
+import ui.pages.AbstractPage;
 
 public class UIManager{
     private final boolean canClearScreen = true; //for testing purposes
@@ -21,11 +17,6 @@ public class UIManager{
     private final String RESET;
 
     private HashMap<String, String> colorMap = new HashMap<>();
-
-    
-    private Page currentPage;
-    private String message1;
-    private String message2;
 
     private UIManager(){
         scanner = new Scanner(System.in);
@@ -41,11 +32,6 @@ public class UIManager{
         colorMap.put("cyan","\033[0;36m");
         colorMap.put("white","\033[0;37m");
 
-        message1 = "";
-        message2 = "";
-        currentPage = null;
-
-        setUpCommand();
     }
 
     public static UIManager getInstance(){
@@ -56,67 +42,17 @@ public class UIManager{
         return instance;
     } 
 
-
-    public List<Page> prev = new ArrayList<>();
-
-    public void sendAndReceive(Page options){
-        //inserts the current page into the previous page list so that the user can trace back their visited pages
-        if(currentPage != null && !prev.contains(currentPage) && !prev.isEmpty() && prev.get(prev.size()-1) != currentPage){
-            prev.add(currentPage);
-        }
-        currentPage = options;
-
-        options.printPage();
-
-        String input = scanner.nextLine();
-        
+    public void printPage(AbstractPage page){
         clearScreen();
+        page.update();
 
-        try{
-            //Try to parse the input into an integer. If it succeeds, then it means the user is attempting to select an option.
-            int idx = Integer.parseInt(input) - 1;
-            
-            Option selected = options.getOptions().get(idx);
+        System.out.println(page.getHeading()+"\n\n");
+        page.printPage();
+        System.out.println();
+        System.out.println(page.getMessage1());
+        System.out.println(page.getMessage2());
 
-            if(selected.getIsUnlocked() == true){
-                prev.add(options);
-                selected.getAction().execute();
-            }else{
-                setMessage1(getColoredText("red", "This option is not accessible."));
-                sendAndReceive(options);
-            }
-            
-        }catch(IndexOutOfBoundsException | NumberFormatException e){
-            //If it catches an error, then it means one of two things: User attempted to run a command or 
-            //they just put in a number out of range of the options.
-
-            //If the input started with 'i' and the amount of words in the string is equal to two,
-            //it means the user is trying to use the info command.
-            if(input.startsWith("i") && input.split(" ").length == 2){
-                String[] cmd = input.split(" ");
-                try{
-                    int idx = Integer.parseInt(cmd[1]);
-
-                    setMessage1(getDescription(idx - 1));
-                }catch(NumberFormatException | IndexOutOfBoundsException e2){
-                    setMessage1(getColoredText("red", "Please input a correct number"));
-                }
-                sendAndReceive(options);
-            }else{
-                //Else, it is using other commands, such as the 'home' or 'back' command. If the user inputs 
-                //gibberish or a command that is not accessible, then the command manager class will handle it.
-                CommandManager.getInstance().invokeCommand(input, options);
-            }
-        }
-
-    }
-
-    private String getDescription(int idx){
-        if(idx < 0 || idx > currentPage.getOptions().size()){
-            return getColoredText("red", "Please type a correct argument.");
-        }else{
-            return currentPage.getOptions().get(idx).getDescription();
-        }
+        CommandManager.getInstance().handleCommand(page);
     }
 
     public void clearScreen(){
@@ -133,46 +69,9 @@ public class UIManager{
     public String getColoredText(String color, String text){
         return getColor(color) + text + RESET;
     }
-
-    public void setMessage1(String message){
-        this.message1 = message;
-    }
-
-    public void setMessage2(String message){
-        this.message2 = message;
-    }
-
-    public String getMessage1(){
-        return message1;
-    }
-
-    public String getMessage2(){
-        return message2;
-    }
-
+    
     private String getColor(String color){
         return colorMap.get(color);
     }
 
-    public Page getCurrentPage()
-    {
-        return currentPage;
-    }
-
-    private void setUpCommand(){
-        CommandManager cmd = CommandManager.getInstance();
-
-        cmd.addCommand("h", (arg) -> {sendAndReceive(OptionPath.mainPage);return true;});
-        cmd.addCommand("b", (arg) -> {
-            if(!prev.isEmpty()){
-                Page back = prev.get(prev.size() - 1);
-                prev.remove(prev.size() - 1);
-                currentPage = null;
-                sendAndReceive(back);
-            }else{
-                sendAndReceive(OptionPath.mainPage);
-            }
-            return true;
-        });
-    }
 }
