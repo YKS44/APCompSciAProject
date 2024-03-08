@@ -40,7 +40,7 @@ public class CommandManager{
                 commandMap.get(page.getClass().getName()).get(splitInput[0]).accept(new String[] {splitInput[0]});
             }
         }else{
-            page.setMessage1(UIManager.getInstance().getColoredText("red", "Incorrect Command"));
+            page.setMessage1(UIManager.getInstance().getColoredText("red", "Unknown Command"));
         }
         UIManager.getInstance().printPage(page);
     }

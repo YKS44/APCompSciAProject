@@ -75,11 +75,11 @@ public class MainPage extends AbstractPage{
                         setMessage1(uim.getColoredText("red", "This option is not accessible."));
                     }
                 }catch(IndexOutOfBoundsException e){
-                    this.setMessage1(uim.getColoredText("red", "1Please input a correct number"));
+                    this.setMessage1(uim.getColoredText("red", "Please input a correct number"));
                 }
                 
             }else{
-                this.setMessage1(uim.getColoredText("red", "2Please input a correct number"));
+                this.setMessage1(uim.getColoredText("red", "Please input a correct number"));
             }
         });
 

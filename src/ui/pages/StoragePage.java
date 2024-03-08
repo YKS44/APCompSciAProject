@@ -50,6 +50,7 @@ public class StoragePage extends AbstractPage{
         for(Product product : storage){
             System.out.print("■");
         }
+        System.out.println();
     }
 
     @Override
@@ -58,6 +59,10 @@ public class StoragePage extends AbstractPage{
 
         cmd.addCommand(getClass().getName(), "add", (arg) -> {
             storage.add(new Meat(new int[]{0,0}, 100.0, 3, 0.5, 0.1, "Pork"));
+        });
+
+        cmd.addCommand(getClass().getName(), "remove", (arg) -> {
+            storage.remove(0);
         });
 
         cmd.addCommand(getClass().getName(), "exit", (arg) -> {

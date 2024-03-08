@@ -1,5 +1,4 @@
 package ui.pages;
-import java.util.Scanner;
 
 import administration.Customer;
 import administration.Employee;
@@ -7,7 +6,6 @@ import managers.CommandManager;
 import managers.LoginManager;
 import managers.UIManager;
 import products.Meat;
-import products.Movable;
 import products.Product;
 
 public class StorePage extends AbstractPage{
@@ -19,10 +17,6 @@ public class StorePage extends AbstractPage{
     public Product[][] aisle = new Product[7][5]; //dairy, meat, vegetable, drinks, snack, medicine, fish
     private String[] section = {"Dairy", "Meat", "Vegetable ", "Drinks", "Snack", "Medicine", "Fish"};
     private final int longestSectionName;
-
-    private boolean endStorePage = false;
-
-    private String message = "";
 
     private StorePage(){
         int tempMax = 0;
@@ -76,7 +70,6 @@ public class StorePage extends AbstractPage{
     }
 
     public void closeStorePage(){
-        endStorePage = true;
         LoginScreen.getInstance().startHomeScreen();
     }
 
@@ -122,6 +115,11 @@ public class StorePage extends AbstractPage{
 
     @Override
     public void printPage() {
+        String col = " ".repeat(longestSectionName);
+        for(int i = 0; i < aisle[0].length; i++){
+            col += i;
+        }
+        System.out.println(col);
         for(int i = 0; i < aisle.length; i++){
             System.out.printf("%-"+longestSectionName+"s", section[i]);
             for(int j = 0; j < aisle[i].length; j++){
@@ -131,6 +129,7 @@ public class StorePage extends AbstractPage{
                     System.out.print("☐");
                 }
             }
+            System.out.print(" " + i);
             System.out.println();
         }
     }
