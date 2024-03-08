@@ -1,7 +1,6 @@
 package managers;
 
 import java.util.HashMap;
-import java.util.Scanner;
 
 import ui.pages.AbstractPage;
 
@@ -12,15 +11,11 @@ public class UIManager{
 
     private static UIManager instance;
 
-    private final Scanner scanner;
-
     private final String RESET;
 
     private HashMap<String, String> colorMap = new HashMap<>();
 
     private UIManager(){
-        scanner = new Scanner(System.in);
-
         RESET = "\033[0m";
 
         colorMap.put("black","\033[0;30m");
@@ -52,6 +47,7 @@ public class UIManager{
         System.out.println(page.getMessage1());
         System.out.println(page.getMessage2());
 
+        page.setMessage1("");
         CommandManager.getInstance().handleCommand(page);
     }
 

@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import managers.UIManager;
-
 public class Page {
     private ArrayList<Option> options;
     private String title;
-
-    private static final UIManager uim = UIManager.getInstance();
 
 	private Page(ArrayList<Option> options, String title){
 		this.options = options;
@@ -40,10 +36,7 @@ public class Page {
 
             if(option.getIsUnlocked() == true){
                 System.out.println((i+1) + ". " + title);
-            }else{
-                System.out.println((i+1) + ". " + uim.getColoredText("red", "[NOT ACCESSIBLE]"));
             }
-            
         }
     }
 }

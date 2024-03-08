@@ -33,7 +33,7 @@ public class LoginScreen {
                 System.out.println("\nHomepage loading...");
 
                 try{
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                     startHomeScreen();
                 } catch(InterruptedException e){
                     e.printStackTrace();

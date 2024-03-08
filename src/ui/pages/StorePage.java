@@ -10,9 +10,9 @@ import products.Meat;
 import products.Movable;
 import products.Product;
 
-public class Store extends AbstractPage{
+public class StorePage extends AbstractPage{
 
-    private static Store instance = null;
+    private static StorePage instance = null;
 
     private final UIManager uim = UIManager.getInstance();
     
@@ -24,7 +24,7 @@ public class Store extends AbstractPage{
 
     private String message = "";
 
-    private Store(){
+    private StorePage(){
         int tempMax = 0;
         for(String str : section){
             if(str.length() > tempMax){
@@ -71,6 +71,9 @@ public class Store extends AbstractPage{
         }
     }
 
+    public void openStorePage(){ 
+        uim.printPage(getInstance());
+    }
 
     public void closeStorePage(){
         endStorePage = true;
@@ -89,7 +92,6 @@ public class Store extends AbstractPage{
     }
 
     private Product getProductAt(int[] loc){
-        
         try{
             Product product = aisle[loc[0]][loc[1]];
             return product;
@@ -99,9 +101,9 @@ public class Store extends AbstractPage{
         }
     }
 
-    public static Store getInstance(){
+    public static StorePage getInstance(){
         if(instance == null){
-            instance = new Store();
+            instance = new StorePage();
         }
         return instance;
     }
@@ -110,11 +112,12 @@ public class Store extends AbstractPage{
     public void update(){
         if(LoginManager.getInstance().getCurrentlyLoggedIn() instanceof Customer){
             Customer customer = (Customer) LoginManager.getInstance().getCurrentlyLoggedIn();
-            this.setHeading(String.format(uim.getColoredText("green", "%-31s") + uim.getColoredText("cyan", "Money: $%.2f"),"Main Page", customer.getMoneyLeft()));
+            this.setHeading(String.format(uim.getColoredText("green", "%-31s") + uim.getColoredText("cyan", "Money: $%.2f"),"Store Page", customer.getMoneyLeft()));
         }else if(LoginManager.getInstance().getCurrentlyLoggedIn() instanceof Employee){
             Employee employee = (Employee) LoginManager.getInstance().getCurrentlyLoggedIn();
-            this.setHeading(String.format(uim.getColoredText("green", "%-31s") + uim.getColoredText("cyan", "Level: %s"),"Main Page", employee.getAccountLevel()));
+            this.setHeading(String.format(uim.getColoredText("green", "%-31s") + uim.getColoredText("cyan", "Level: %s"),"Store Page", employee.getAccountLevel()));
         }
+        this.setMessage2(uim.getColoredText("yellow", "Type 'help' for help"));
     }
 
     @Override
@@ -144,11 +147,65 @@ public class Store extends AbstractPage{
             if(arg.length == 1){
                 try{
                     int[] loc = convertToLocation(arg[0]);
-                    this.setMessage1(getProductAt(loc).toString());
-
+                    Product selectedProduct = getProductAt(loc);
+                    if(selectedProduct != null){
+                        this.setMessage1(selectedProduct.toString());
+                    }else{
+                        this.setMessage1(uim.getColoredText("red", "That location is empty"));
+                    }
                 }catch(Exception e){
                     this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+                }
+            }else{
+                this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+            }
+        });
+
+        cmd.addCommand(getClass().getName(), "add", (arg) -> {
+            if(arg.length == 1){
+                try{
+                    int[] loc = convertToLocation(arg[0]);
+                    if(!addProduct(loc, new Meat(loc, 100.0, 3, 0.5, 0.1, "Pork"))){
+                        this.setMessage1(uim.getColoredText("red", "Please select an empty location"));
+                    }
                     uim.printPage(getInstance());
+                }catch(Exception e){
+                    this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+                }
+            }else{
+                this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+            }
+        });
+
+        cmd.addCommand(getClass().getName(), "move", (arg) -> {
+            if(arg.length == 2){
+                try{
+                    int[] from = convertToLocation(arg[0]);
+                    int[] to   = convertToLocation(arg[1]);
+
+                    if(getProductAt(from) != null){
+                        if(!getProductAt(from).move(to)){
+                            this.setMessage1(uim.getColoredText("red", "That slot is occupied")); 
+                        }
+                    }else{
+                        this.setMessage1(uim.getColoredText("red", "That slot is empty"));
+                    }
+                }catch(Exception e){
+                    this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+                }
+            }else{
+                this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+            }
+        });
+
+        cmd.addCommand(getClass().getName(), "buy", (arg) -> {
+            if(arg.length == 1){
+                int[] loc = convertToLocation(arg[0]);
+
+                if(removeProduct(loc)){
+                    this.setMessage1("Item bought!");
+                }else{
+                    this.setMessage1(uim.getColoredText("red", "Please select a valid location"));
                 }
             }
         });

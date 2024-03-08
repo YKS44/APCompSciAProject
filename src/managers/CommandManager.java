@@ -41,9 +41,8 @@ public class CommandManager{
             }
         }else{
             page.setMessage1(UIManager.getInstance().getColoredText("red", "Incorrect Command"));
-
-            UIManager.getInstance().printPage(page);
         }
+        UIManager.getInstance().printPage(page);
     }
 
     public static CommandManager getInstance(){

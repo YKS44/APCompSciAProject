@@ -36,6 +36,7 @@ public class MainPage extends AbstractPage{
             Employee employee = (Employee) LoginManager.getInstance().getCurrentlyLoggedIn();
             this.setHeading(String.format(uim.getColoredText("green", "%-31s") + uim.getColoredText("cyan", "Level: %s"),"Main Page", employee.getAccountLevel()));
         }
+        this.setMessage2(uim.getColoredText("yellow", "Type 'help' for help"));
     }
 
     @Override
@@ -49,17 +50,14 @@ public class MainPage extends AbstractPage{
 
         cmd.addCommand(getClass().getName(),"h", (arg) -> {
             currentPage = MainPageOptionPath.mainPage;
-            uim.printPage(MainPage.getInstance());
         });
 
         cmd.addCommand(getClass().getName(),"b", (arg) -> {
             if(!prev.isEmpty()){
                 Page back = prev.remove(prev.size()-1);
                 currentPage = back;
-                uim.printPage(MainPage.getInstance());
             }else{
                 currentPage = MainPageOptionPath.mainPage;
-                uim.printPage(MainPage.getInstance());
             }
         });
 
@@ -75,16 +73,13 @@ public class MainPage extends AbstractPage{
                         selected.getAction().execute();
                     }else{
                         setMessage1(uim.getColoredText("red", "This option is not accessible."));
-                        uim.printPage(MainPage.getInstance());
                     }
                 }catch(IndexOutOfBoundsException e){
                     this.setMessage1(uim.getColoredText("red", "1Please input a correct number"));
-                    uim.printPage(MainPage.getInstance());
                 }
                 
             }else{
                 this.setMessage1(uim.getColoredText("red", "2Please input a correct number"));
-                uim.printPage(MainPage.getInstance());
             }
         });
 
@@ -93,10 +88,17 @@ public class MainPage extends AbstractPage{
                 int selectedOption = Integer.parseInt(arg[0]) - 1;
 
                 this.setMessage1(getDescription(selectedOption));
-                uim.printPage(MainPage.getInstance());
             }else{
                 this.setMessage1(uim.getColoredText("red", "Please input a correct number"));
-                uim.printPage(MainPage.getInstance());
+            }
+        });
+
+        cmd.addCommand(getClass().getName(), "help", (arg) -> {
+            if(arg.length == 1){
+                this.setMessage1("h     - Goes back to home screen\n"+
+                                 "b     - Goes back a page\n"+
+                                 "c [#] - Executes that option\n"+
+                                 "i [#] - Gives more information about that option");
             }
         });
     }

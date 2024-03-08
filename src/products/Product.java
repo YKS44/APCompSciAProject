@@ -19,4 +19,14 @@ public abstract class Product implements Movable{
 
     public void purchase(){}
     public abstract double getDiscount();
+
+    @Override
+    public String toString(){
+        String result = "";
+
+        result += "Price: " + "$" + price + "\n";
+        result += "Quantity: " + quantity + "\n";
+
+        return result;
+    }
 }

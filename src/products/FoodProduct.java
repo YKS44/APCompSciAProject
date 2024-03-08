@@ -23,7 +23,12 @@ public abstract class FoodProduct extends Product{
 
     @Override
     public String toString(){
-        return "";
+        String result = "";
+
+        result += "Expiration Percent: " + (expiredPercent*100) + "%\n";
+        result += super.toString();
+
+        return result;
     }
     
 }

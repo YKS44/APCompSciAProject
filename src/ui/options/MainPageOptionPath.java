@@ -3,8 +3,8 @@ package ui.options;
 import managers.UIManager;
 import ui.pages.AbstractPage;
 import ui.pages.LoginScreen;
-import ui.pages.MainPage;
-import ui.pages.Store;
+import ui.pages.StoragePage;
+import ui.pages.StorePage;
 
 public class MainPageOptionPath {
     private static final LoginScreen game = LoginScreen.getInstance();
@@ -18,9 +18,9 @@ public class MainPageOptionPath {
     }
 
     private static Option[] mainOptions = {
-        new Option("Temp", ()->{MainPage.getInstance().setMessage1("Hi :)");}, "Temp"),
         new Option("Go back to login", () -> {game.goBackToLoginPage();}, "Goes back to login page"),
-        new Option("Open store page", () -> {Store.getInstance().openStorePage();},"Opens the store page")
+        new Option("Open store page", () -> {StorePage.getInstance().openStorePage();},"Opens the store page"),
+        new Option("Open Storage Page", () -> {StoragePage.getInstance().openStoragePage();}, "Opens the storage page")
     };
 
     public static Page mainPage = Page.buildPage(mainOptions, "Main Page");
