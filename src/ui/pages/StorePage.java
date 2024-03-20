@@ -1,12 +1,22 @@
 package ui.pages;
 
+import java.util.Random;
+
 import administration.Customer;
 import administration.Employee;
+import administration.Account.AccountLevel;
 import managers.CommandManager;
 import managers.LoginManager;
 import managers.UIManager;
+import products.Dairy;
+import products.Drink;
+import products.Fish;
 import products.Meat;
+import products.Medicine;
+import products.Movable;
 import products.Product;
+import products.Snack;
+import products.Vegetable;
 
 public class StorePage extends AbstractPage{
 
@@ -14,22 +24,33 @@ public class StorePage extends AbstractPage{
 
     private final UIManager uim = UIManager.getInstance();
     
-    public Product[][] aisle = new Product[7][5]; //dairy, meat, vegetable, drinks, snack, medicine, fish
-    private String[] section = {"Dairy", "Meat", "Vegetable ", "Drinks", "Snack", "Medicine", "Fish"};
+    public Product[] section = {new Dairy(0,0,getHeading(), 0, null), new Meat(0, 0, getMessage1(), 0, null), new Vegetable(0, 0, getHeading(), 0, null), new Drink(0, 0, getHeading(), 0, null), new Snack(0, 0, getHeading(), 0, null), new Medicine(0, 0, getHeading(), null), new Fish(0, 0, getHeading(), 0, null)};
     private final int longestSectionName;
+    public Product[][] aisle = new Product[section.length][5]; //dairy, meat, vegetable, drinks, snack, medicine, fish
 
     private StorePage(){
         int tempMax = 0;
-        for(String str : section){
-            if(str.length() > tempMax){
-                tempMax = str.length();
+        for(Product product : section){
+            if(product.getClass().getName().length()-8 > tempMax){
+                tempMax = product.getClass().getName().length()-8;
             }
         }
         longestSectionName = tempMax;
 
         setUpCommand();
+        fillAisle();
+    }
 
-        aisle[0][0] = new Meat(new int[]{0,0}, 100.0, 3, 0.5, 0.1, "Pork");
+    private void fillAisle(){
+        Random rand = new Random();
+
+        for(int i = 0; i < aisle.length; i++){
+            for(int j = 0; j < aisle[i].length; j++){
+                if(rand.nextDouble() < 0.7){
+                    aisle[i][j] = section[i].generateProduct();
+                }
+            }
+        }
     }
 
     public Product getProductAt(int row, int col){
@@ -63,6 +84,10 @@ public class StorePage extends AbstractPage{
             aisle[loc[0]][loc[1]] = product;
             return true;
         }
+    }
+
+    private void setProductAt(int[] loc, Product product){
+        aisle[loc[0]][loc[1]] = product;
     }
 
     public void openStorePage(){ 
@@ -110,7 +135,6 @@ public class StorePage extends AbstractPage{
             Employee employee = (Employee) LoginManager.getInstance().getCurrentlyLoggedIn();
             this.setHeading(String.format(uim.getColoredText("green", "%-31s") + uim.getColoredText("cyan", "Level: %s"),"Store Page", employee.getAccountLevel()));
         }
-        this.setMessage2(uim.getColoredText("yellow", "Type 'help' for help"));
     }
 
     @Override
@@ -121,7 +145,7 @@ public class StorePage extends AbstractPage{
         }
         System.out.println(col);
         for(int i = 0; i < aisle.length; i++){
-            System.out.printf("%-"+longestSectionName+"s", section[i]);
+            System.out.printf("%-"+longestSectionName+"s", section[i].getClass().getName().substring(9,section[i].getClass().getName().length()));
             for(int j = 0; j < aisle[i].length; j++){
                 if(aisle[i][j] != null){
                     System.out.print("■");
@@ -132,6 +156,7 @@ public class StorePage extends AbstractPage{
             System.out.print(" " + i);
             System.out.println();
         }
+        this.setMessage2(uim.getColoredText("yellow", "Type 'help' for help"));
     }
 
     @Override
@@ -161,51 +186,89 @@ public class StorePage extends AbstractPage{
         });
 
         cmd.addCommand(getClass().getName(), "add", (arg) -> {
-            if(arg.length == 1){
-                try{
-                    int[] loc = convertToLocation(arg[0]);
-                    if(!addProduct(loc, new Meat(loc, 100.0, 3, 0.5, 0.1, "Pork"))){
-                        this.setMessage1(uim.getColoredText("red", "Please select an empty location"));
-                    }
-                    uim.printPage(getInstance());
-                }catch(Exception e){
-                    this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
-                }
-            }else{
-                this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
-            }
+            // if(arg.length == 1){
+            //     try{
+            //         int[] loc = convertToLocation(arg[0]);
+            //         if(!addProduct(loc, new Meat(loc, 100.0, 3, 0.5, 0.1, "Pork"))){
+            //             this.setMessage1(uim.getColoredText("red", "Please select an empty location"));
+            //         }
+            //         uim.printPage(getInstance());
+            //     }catch(Exception e){
+            //         this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+            //     }
+            // }else{
+            //     this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+            // }
         });
 
         cmd.addCommand(getClass().getName(), "move", (arg) -> {
             if(arg.length == 2){
-                try{
-                    int[] from = convertToLocation(arg[0]);
-                    int[] to   = convertToLocation(arg[1]);
-
-                    if(getProductAt(from) != null){
-                        if(!getProductAt(from).move(to)){
-                            this.setMessage1(uim.getColoredText("red", "That slot is occupied")); 
+                if(LoginManager.getInstance().getCurrentlyLoggedIn().getAccountLevel().level >= 2){
+                    try{
+                        int[] from = convertToLocation(arg[0]);
+                        int[] to   = convertToLocation(arg[1]);
+    
+                        if(getProductAt(from) != null){
+                            if(getProductAt(from) instanceof Movable){
+                                int amtLost = getProductAt(from).move();
+                                if(addProduct(to, getProductAt(from))){
+                                    removeProduct(from);
+                                    if(amtLost > 0){
+                                        this.setMessage2(uim.getColoredText("yellow", amtLost + " quantity was lost during the relocation!"));
+                                    }
+                                    
+                                    this.setMessage1(uim.getColoredText("green", "Successfully moved the product."));
+                                }else{
+                                    this.setMessage1(uim.getColoredText("red", "You can only move this to an empty slot"));
+                                }
+                            }else{
+                                this.setMessage1(uim.getColoredText("red", "This product is not movable!"));
+                            }
+                        }else{
+                            this.setMessage1(uim.getColoredText("red", "That slot is empty"));
                         }
-                    }else{
-                        this.setMessage1(uim.getColoredText("red", "That slot is empty"));
+                    }catch(Exception e){
+                        e.printStackTrace();
+                        this.setMessage1(uim.getColoredText("red", "Please input the correct argument"));
                     }
-                }catch(Exception e){
-                    this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+                }else{
+                    this.setMessage1(uim.getColoredText("red", "You must be a worker or a higher status to run this command"));
                 }
             }else{
-                this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+                this.setMessage1(uim.getColoredText("red", "Syntax: move #,# #,#"));
             }
         });
 
         cmd.addCommand(getClass().getName(), "buy", (arg) -> {
             if(arg.length == 1){
-                int[] loc = convertToLocation(arg[0]);
-
-                if(removeProduct(loc)){
-                    this.setMessage1("Item bought!");
+                if(LoginManager.getInstance().getCurrentlyLoggedIn().getAccountLevel() == AccountLevel.CUSTOMER){
+                    int[] loc = convertToLocation(arg[0]);
+    
+                    if(removeProduct(loc)){
+                        this.setMessage1("Item bought!");
+                    }
                 }else{
-                    this.setMessage1(uim.getColoredText("red", "Please select a valid location"));
+                    this.setMessage1(uim.getColoredText("red", "Only customers can use this command."));
                 }
+            }
+            else{
+                this.setMessage1(uim.getColoredText("red", "Please select a valid location"));
+            }
+        });
+        
+        cmd.addCommand(getClass().getName(), "cp", (arg) -> {
+            if(arg.length == 2){
+                if(LoginManager.getInstance().getCurrentlyLoggedIn().getAccountLevel() == AccountLevel.BOSS){
+                    int[] loc = convertToLocation(arg[0]);
+                    Product product = getProductAt(loc);
+                    double price = Double.parseDouble(arg[1]);
+                    
+                    
+                }else{
+                    this.setMessage1(uim.getColoredText("red", "You do not have access to this command."));
+                }
+            }else{
+                this.setMessage1(uim.getColoredText("red","Syntax: cp #,# #"));
             }
         });
     }

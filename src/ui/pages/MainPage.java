@@ -75,6 +75,7 @@ public class MainPage extends AbstractPage{
                         setMessage1(uim.getColoredText("red", "This option is not accessible."));
                     }
                 }catch(IndexOutOfBoundsException e){
+                    e.printStackTrace();
                     this.setMessage1(uim.getColoredText("red", "Please input a correct number"));
                 }
                 

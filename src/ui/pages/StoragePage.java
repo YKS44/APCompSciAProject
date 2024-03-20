@@ -58,7 +58,7 @@ public class StoragePage extends AbstractPage{
         CommandManager cmd = CommandManager.getInstance();
 
         cmd.addCommand(getClass().getName(), "add", (arg) -> {
-            storage.add(new Meat(new int[]{0,0}, 100.0, 3, 0.5, 0.1, "Pork"));
+            storage.add(new Meat(0, 0, getHeading(), 0, null));
         });
 
         cmd.addCommand(getClass().getName(), "remove", (arg) -> {

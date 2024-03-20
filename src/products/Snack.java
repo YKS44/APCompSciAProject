@@ -1,16 +1,42 @@
 package products;
 
-public class Snack extends FoodProduct implements Movable{
-    private String snackType;
+import java.util.Random;
 
-    public Snack(int[] location, double price, int quantity, double expirationPercent, double expirationRate, String snackType) {
-        super(location, price, quantity, expirationPercent, expirationRate);
+public class Snack extends FoodProduct implements Movable{
+    public enum SnackType{
+        Chocolate,
+        Candy,
+        Chips
+    }
+
+    private SnackType snackType;
+
+    public Snack(double price, int quantity, String id, double expirationPercent, SnackType snackType) {
+        super(price, quantity, id, expirationPercent);
         this.snackType = snackType;
     }
 
     @Override
-    public boolean move(int[] location) {
-        return false;
+    public int move() {
+        return 0;
+    }
+
+    @Override
+    public String toString(){
+        String result = "";
+
+        result += "Product Type: " + "Snack\n";
+        result += "Meat Type: " + snackType.toString() + "\n";
+        result += super.toString();
+
+        return result;
+    }
+
+    @Override
+    public Product generateProduct() {
+        Random rand = new Random();
+
+        return new Snack(1 + rand.nextInt(10), 1 + rand.nextInt(10), Product.generateID(), 5 + rand.nextInt(10), SnackType.values()[rand.nextInt(SnackType.values().length)]);
     }
     
 }

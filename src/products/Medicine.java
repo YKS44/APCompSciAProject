@@ -1,10 +1,18 @@
 package products;
 
-public class Medicine extends Product {
-    private String medicineType;
+import java.util.Random;
 
-    public Medicine(int[] location, double price, int quantity, String medicineType) {
-        super(location, price, quantity);
+public class Medicine extends Product implements Movable{
+    public enum MedicineType{
+        Sleep,
+        Sickness,
+        Depressants
+    }
+
+    private MedicineType medicineType;
+
+    public Medicine(double price, int quantity, String id, MedicineType medicineType) {
+        super(price, quantity, id);
         this.medicineType = medicineType;
     }
 
@@ -19,9 +27,16 @@ public class Medicine extends Product {
     }
 
     @Override
-    public boolean move(int[] location) {
+    public int move() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'move'");
+    }
+
+    @Override
+    public Product generateProduct() {
+        Random rand = new Random();
+
+        return new Medicine(10 + rand.nextInt(30),1 + rand.nextInt(3), Product.generateID(), MedicineType.values()[rand.nextInt(MedicineType.values().length)]);
     }
     
 }

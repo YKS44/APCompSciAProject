@@ -1,17 +1,44 @@
 package products;
 
-public class Fish extends FoodProduct implements Movable{
-    private String fishType;
+import java.util.Random;
 
-    public Fish(int[] location, double price, int quantity, double expirationPercent, double expirationRate, String fishType) {
-        super(location, price, quantity, expirationPercent, expirationRate);
+public class Fish extends FoodProduct{
+    public enum FishType{
+        Cod,
+        Salmon,
+        Snake,
+        Crab
+    }
+
+    private FishType fishType;
+
+    public Fish(double price, int quantity, String id, double expirationPercent, FishType fishType) {
+        super(price, quantity, id, expirationPercent);
         this.fishType = fishType;
     }
 
     @Override
-    public boolean move(int[] location) {
-       System.out.println("This product is not movable");
-       return false;
+    public String toString(){
+        String result = "";
+
+        result += "Product Type: " + "Fish\n";
+        result += "Meat Type: " + fishType.toString() + "\n";
+        result += super.toString();
+
+        return result;
+    }
+
+    @Override
+    public Product generateProduct() {
+        Random rand = new Random();
+
+        return new Fish(5+rand.nextInt(6)-3, 3+rand.nextInt(3), Product.generateID(), rand.nextInt(40)+40, FishType.values()[rand.nextInt(FishType.values().length)]);
+    }
+
+    @Override
+    public int move() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'move'");
     }
     
 }

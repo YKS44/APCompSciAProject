@@ -18,8 +18,8 @@ public class MainPageOptionPath {
     }
 
     private static Option[] mainOptions = {
-        new Option("Go back to login", () -> {game.goBackToLoginPage();}, "Goes back to login page"),
-        new Option("Open store page", () -> {StorePage.getInstance().openStorePage();},"Opens the store page"),
+        new Option("Logout", () -> {game.goBackToLoginPage();}, "Logout"),
+        new Option("Open Store page", () -> {StorePage.getInstance().openStorePage();},"Opens the store page"),
         new Option("Open Storage Page", () -> {StoragePage.getInstance().openStoragePage();}, "Opens the storage page")
     };
 
