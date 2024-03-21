@@ -1,8 +1,11 @@
 package ui.options;
 
+import administration.Account.AccountLevel;
+import managers.LoginManager;
 import managers.UIManager;
 import ui.pages.AbstractPage;
 import ui.pages.LoginScreen;
+import ui.pages.MainPage;
 import ui.pages.StoragePage;
 import ui.pages.StorePage;
 
@@ -20,7 +23,13 @@ public class MainPageOptionPath {
     private static Option[] mainOptions = {
         new Option("Logout", () -> {game.goBackToLoginPage();}, "Logout"),
         new Option("Open Store page", () -> {StorePage.getInstance().openStorePage();},"Opens the store page"),
-        new Option("Open Storage Page", () -> {StoragePage.getInstance().openStoragePage();}, "Opens the storage page")
+        new Option("Open Storage Page", () -> {
+            if(LoginManager.getInstance().getCurrentlyLoggedIn().getAccountLevel().level >= AccountLevel.INTERN.level){
+                StoragePage.getInstance().openStoragePage();
+            }else{
+                MainPage.getInstance().setMessage1(uim.getColoredText("red", "Customers cannot use this command."));
+            }
+        }, "Opens the storage page")
     };
 
     public static Page mainPage = Page.buildPage(mainOptions, "Main Page");

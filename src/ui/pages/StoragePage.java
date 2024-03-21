@@ -2,22 +2,21 @@ package ui.pages;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Random;
 
 import administration.Customer;
 import administration.Employee;
+import administration.Account.AccountLevel;
 import managers.CommandManager;
 import managers.LoginManager;
 import managers.UIManager;
-import products.Meat;
-import products.Product;
 
 public class StoragePage extends AbstractPage{
 
     private static StoragePage instance = null;
     private final UIManager uim = UIManager.getInstance();
 
-    private List<Product> storage;
+    private List<Integer> storage;
     
     private StoragePage(){
         storage = new ArrayList<>();
@@ -44,11 +43,19 @@ public class StoragePage extends AbstractPage{
         LoginScreen.getInstance().startHomeScreen();
     }
 
+    public List<Integer> getStorage(){
+        return storage;
+    }
+
+    public int getTicket(){
+        return storage.remove(storage.size()-1);
+    }
+
     @Override
     public void printPage() {
-        System.out.print("Products: ");
-        for(Product product : storage){
-            System.out.print("■");
+        System.out.print("Food Tickets: ");
+        for(Integer a : storage){
+            System.out.print("|"+a.intValue()+"| ");
         }
         System.out.println();
     }
@@ -56,17 +63,18 @@ public class StoragePage extends AbstractPage{
     @Override
     protected void setUpCommand() {
         CommandManager cmd = CommandManager.getInstance();
-
-        cmd.addCommand(getClass().getName(), "add", (arg) -> {
-            storage.add(new Meat(0, 0, getHeading(), 0, null));
-        });
-
-        cmd.addCommand(getClass().getName(), "remove", (arg) -> {
-            storage.remove(0);
-        });
+        Random rand = new Random();
 
         cmd.addCommand(getClass().getName(), "exit", (arg) -> {
             closeStoragePage();
+        });
+
+        cmd.addCommand(getClass().getName(), "order", (arg) -> {
+            if(LoginManager.getInstance().getCurrentlyLoggedIn().getAccountLevel() == AccountLevel.BOSS){
+                storage.add(rand.nextInt(10)+1);
+            }else{
+                this.setMessage1(uim.getColoredText("red", "Only the boss can use this command."));
+            }
         });
     }
     

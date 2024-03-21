@@ -10,11 +10,13 @@ import administration.Employee;
 public class LoginManager {
     private static LoginManager instance = null;
 
-    private HashMap<String, Account> loginMap = new HashMap<>(); //TODO make this into reading file later
+    private HashMap<String, Account> loginMap = new HashMap<>(); 
 
     private LoginManager(){
         loginMap.put("customer", new Customer(100.0));
-        loginMap.put("employee", new Employee(AccountLevel.BOSS));
+        loginMap.put("boss", new Employee(AccountLevel.BOSS));
+        loginMap.put("worker", new Employee(AccountLevel.WORKER));
+        loginMap.put("intern", new Employee(AccountLevel.INTERN));
     }
 
     private Account currentlyLogin;

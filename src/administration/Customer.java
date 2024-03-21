@@ -14,6 +14,10 @@ public class Customer implements Account{
         return moneyLeft;
     }
 
+    public void reduceMoney(double amount){
+        moneyLeft -= amount;
+    }
+
     @Override
     public AccountLevel getAccountLevel() {
         return level;

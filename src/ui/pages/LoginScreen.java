@@ -8,9 +8,6 @@ import managers.UIManager;
 public class LoginScreen {
     private static LoginScreen instance = null;
 
-    private boolean endProgram = false;
-    private boolean goBackToLoginPage = false;
-
     private final UIManager uim = UIManager.getInstance();
 
     public void initializeStore(){
@@ -31,7 +28,6 @@ public class LoginScreen {
                 loginSuccessful = true;
                 uim.printInColor("green", "Login successful!");
                 System.out.println("\nHomepage loading...");
-
                 try{
                     Thread.sleep(500);
                     startHomeScreen();
@@ -46,25 +42,12 @@ public class LoginScreen {
         scan.close();
     }
 
-    public void endProgram(){
-        endProgram = true;
-    }
-
     public void goBackToLoginPage(){
-        goBackToLoginPage = true;
-        endProgram = true;
+        loginPage();
     }
 
     public void startHomeScreen(){
-        endProgram = false;
-        while(!endProgram){
-            uim.printPage(MainPage.getInstance());
-        }
-
-        if(goBackToLoginPage){
-            goBackToLoginPage = false;
-            loginPage();
-        }
+        uim.printPage(MainPage.getInstance());
     }
 
     public static LoginScreen getInstance(){
