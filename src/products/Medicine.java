@@ -33,6 +33,17 @@ public class Medicine extends Product implements Movable{
     }
 
     @Override
+    public String toString(){
+        String result = "";
+
+        result += "Product Type: " + "Medicine\n";
+        result += "Medicine Type: " + medicineType.toString() + "\n";
+        result += super.toString();
+
+        return result;
+    }
+
+    @Override
     public Product generateProduct() {
         Random rand = new Random();
 

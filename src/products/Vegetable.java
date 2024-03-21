@@ -28,7 +28,7 @@ public class Vegetable extends FoodProduct implements Movable{
         String result = "";
 
         result += "Product Type: " + "Vegetable\n";
-        result += "Meat Type: " + vegetableType.toString() + "\n";
+        result += "Vegetable Type: " + vegetableType.toString() + "\n";
         result += super.toString();
 
         return result;

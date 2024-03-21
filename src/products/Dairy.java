@@ -27,7 +27,7 @@ public class Dairy extends FoodProduct implements Movable{
         String result = "";
 
         result += "Product Type: " + "Dairy\n";
-        result += "Meat Type: " + dairyType.toString() + "\n";
+        result += "Dairy Type: " + dairyType.toString() + "\n";
         result += super.toString();
 
         return result;

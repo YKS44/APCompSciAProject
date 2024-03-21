@@ -29,7 +29,7 @@ public class Drink extends FoodProduct implements Movable{
         String result = "";
 
         result += "Product Type: " + "Drink\n";
-        result += "Meat Type: " + drinkType.toString() + "\n";
+        result += "Drink Type: " + drinkType.toString() + "\n";
         result += super.toString();
 
         return result;

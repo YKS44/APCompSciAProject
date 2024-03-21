@@ -22,7 +22,7 @@ public class Fish extends FoodProduct{
         String result = "";
 
         result += "Product Type: " + "Fish\n";
-        result += "Meat Type: " + fishType.toString() + "\n";
+        result += "Fish Type: " + fishType.toString() + "\n";
         result += super.toString();
 
         return result;
@@ -40,5 +40,4 @@ public class Fish extends FoodProduct{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'move'");
     }
-    
 }
