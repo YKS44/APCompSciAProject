@@ -220,7 +220,9 @@ public class StorePage extends AbstractPage{
                         }
 
 
-                        if(!addProduct(loc, product)){
+                        if(addProduct(loc, product)){
+                            this.setMessage1(uim.getColoredText("green", "Successfully added " + arg[0] + " at " + arg[1]));
+                        }else{
                             this.setMessage1(uim.getColoredText("red", "Please select an empty location"));
                         }
                     }catch(Exception e){
