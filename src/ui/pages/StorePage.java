@@ -205,7 +205,7 @@ public class StorePage extends AbstractPage{
                             this.setMessage1(uim.getColoredText("red", "Unknown product"));
                             return;
                         }
-                        
+
                         if(!filterProductName(section[loc[0]].getClass().getName()).equalsIgnoreCase(arg[0])){
                             this.setMessage1(uim.getColoredText("red", "You can only move products to aisles of the same type."));
                             return;
@@ -283,11 +283,12 @@ public class StorePage extends AbstractPage{
             if(arg.length == 1){
                 if(LoginManager.getInstance().getCurrentlyLoggedIn().getAccountLevel() == AccountLevel.CUSTOMER){
                     int[] loc = convertToLocation(arg[0]);
+                    Product selectedProduct = getProductAt(loc);
     
-                    if(getProductAt(loc).getPrice() < ((Customer)LoginManager.getInstance().getCurrentlyLoggedIn()).getMoneyLeft()){
+                    if(selectedProduct.getPrice() < ((Customer)LoginManager.getInstance().getCurrentlyLoggedIn()).getMoneyLeft()){
                         if(removeProduct(loc)){
                             this.setMessage1("Item bought!");
-                            ((Customer)LoginManager.getInstance().getCurrentlyLoggedIn()).reduceMoney(getProductAt(loc).getPrice());
+                            ((Customer)LoginManager.getInstance().getCurrentlyLoggedIn()).reduceMoney(selectedProduct.getPrice());
                         }else{
                             this.setMessage1(uim.getColoredText("red", "Please choose a location with a product"));
                         }
