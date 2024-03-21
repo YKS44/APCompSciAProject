@@ -114,7 +114,7 @@ public class StorePage extends AbstractPage{
             Product product = aisle[loc[0]][loc[1]];
             return product;
         }catch(IndexOutOfBoundsException e){
-            this.setMessage1(uim.getColoredText("red", "Please input a correct location"));
+            this.setMessage1(uim.getColoredText("red", "Please input a valid location"));
             return null;
         }
     }
@@ -169,6 +169,18 @@ public class StorePage extends AbstractPage{
 
         cmd.addCommand(getClass().getName(), "exit", (arg) -> {
             closeStorePage();
+        });
+
+        cmd.addCommand(getClass().getName(), "help", (arg) -> {
+            this.setMessage1(
+                "exit                - Exits store page\n"+
+                "info #,#            - Gives info about that product\n"+
+                "add {name} #,#      - Adds that type of product at the specified location\n"+
+                "move #,#, #,#       - Moves the product from loc1 to loc2\n"+
+                "buy #,#             - Buys product at that location\n"+
+                "cp #,# #            - Changes the price of the product\n"+
+                "sum {quantity||sum} - Gets the total sum or quantity of the entire store"
+                );
         });
 
         cmd.addCommand(getClass().getName(), "info", (arg) -> {

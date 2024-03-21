@@ -65,6 +65,13 @@ public class StoragePage extends AbstractPage{
         CommandManager cmd = CommandManager.getInstance();
         Random rand = new Random();
 
+        cmd.addCommand(getClass().getName(), "help", (arg) -> {
+            this.setMessage1(
+                "exit  - Exits the storage page\n"+
+                "order - Orders a food ticket with a random quantity"
+            );
+        });
+
         cmd.addCommand(getClass().getName(), "exit", (arg) -> {
             closeStoragePage();
         });
