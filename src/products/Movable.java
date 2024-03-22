@@ -1,2 +1,4 @@
 package products;
-public interface Movable {}
+public interface Movable {
+    int move();
+}

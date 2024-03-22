@@ -259,7 +259,7 @@ public class StorePage extends AbstractPage{
                             if(getProductAt(from) != null){
                                 if(getProductAt(from) instanceof Movable){
                                     if(filterProductName(getProductAt(from).getClass().getName()).equals(filterProductName(section[to[0]].getClass().getName()))){
-                                        int amtLost = getProductAt(from).move();
+                                        int amtLost = ((Movable)getProductAt(from)).move();
                                         if(addProduct(to, getProductAt(from))){
                                             removeProduct(from);
                                             if(amtLost > 0){
@@ -297,15 +297,18 @@ public class StorePage extends AbstractPage{
             if(arg.length == 1){
                 if(LoginManager.getInstance().getCurrentlyLoggedIn().getAccountLevel() == AccountLevel.CUSTOMER){
                     int[] loc = convertToLocation(arg[0]);
+
+                    if(getProductAt(loc) == null){
+                        this.setMessage1(uim.getColoredText("red", "Please choose a location with a product"));
+                        return;
+                    }
+
                     Product selectedProduct = getProductAt(loc);
     
                     if(selectedProduct.getPrice() < ((Customer)LoginManager.getInstance().getCurrentlyLoggedIn()).getMoneyLeft()){
-                        if(removeProduct(loc)){
-                            this.setMessage1("Item bought!");
-                            ((Customer)LoginManager.getInstance().getCurrentlyLoggedIn()).reduceMoney(selectedProduct.getPrice());
-                        }else{
-                            this.setMessage1(uim.getColoredText("red", "Please choose a location with a product"));
-                        }
+                        removeProduct(loc);
+                        this.setMessage1("Item bought!");
+                        ((Customer)LoginManager.getInstance().getCurrentlyLoggedIn()).reduceMoney(selectedProduct.getPrice());
                     }else{
                         this.setMessage1(uim.getColoredText("red", "You have not enough minerals"));
                     }
@@ -357,7 +360,7 @@ public class StorePage extends AbstractPage{
                         for(Product[] row : aisle){
                             for(Product product : row){
                                 if(product != null){
-                                    price += product.getPrice();
+                                    price += product.getPrice() * product.getQuantity();
                                 }
                             }
                         }

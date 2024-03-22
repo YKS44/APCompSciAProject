@@ -24,7 +24,6 @@ public abstract class Product {
     public void purchase(){}
     public abstract double getDiscount();
     public abstract Product generateProduct();
-    public abstract int move();
 
     public static String generateID(){
         Random rand = new Random();

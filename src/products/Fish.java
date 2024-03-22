@@ -35,9 +35,4 @@ public class Fish extends FoodProduct{
         return new Fish(5+rand.nextInt(6)-3, 3+rand.nextInt(3), Product.generateID(), rand.nextInt(40)+40, FishType.values()[rand.nextInt(FishType.values().length)]);
     }
 
-    @Override
-    public int move() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'move'");
-    }
 }
