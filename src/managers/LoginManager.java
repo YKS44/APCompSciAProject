@@ -7,6 +7,9 @@ import administration.Account.AccountLevel;
 import administration.Customer;
 import administration.Employee;
 
+/**
+ * Handles accounts. Contains password and account level for all accounts. 
+ */
 public class LoginManager {
     private static LoginManager instance = null;
 

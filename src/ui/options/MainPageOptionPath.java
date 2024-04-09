@@ -9,6 +9,9 @@ import ui.pages.MainPage;
 import ui.pages.StoragePage;
 import ui.pages.StorePage;
 
+/**
+ * The options map for the {@link ui.pages.MainPage Main page}.
+ */
 public class MainPageOptionPath {
     private static final LoginScreen game = LoginScreen.getInstance();
 

@@ -37,6 +37,12 @@ public class UIManager{
         return instance;
     } 
 
+
+    /**
+     * Prints the page with a heading, body, and two sub messages.
+     * 
+     * @param page The page to print
+     */
     public void printPage(AbstractPage page){
         clearScreen();
         page.update();
@@ -51,6 +57,9 @@ public class UIManager{
         CommandManager.getInstance().handleCommand(page);
     }
 
+    /**
+     * Clears the terminal
+     */
     public void clearScreen(){
         if(canClearScreen){
             System.out.print("\033[H\033[2J");
@@ -58,14 +67,30 @@ public class UIManager{
         }
     }
 
+    /**
+     * Prints a text in the console with the specified color.
+     * 
+     * @param color The color to print the text in.
+     * @param message The message to print
+     */
     public void printInColor(String color, String message){
         System.out.println(getColor(color) + message + RESET);
     }
 
+    /**
+     * @param color The color to convert the text into.
+     * @param text The text to apply the color to.
+     * @return The given text with the given color
+     */
     public String getColoredText(String color, String text){
         return getColor(color) + text + RESET;
     }
     
+    /**
+     * 
+     * @param color The color code to retrieve.
+     * @return The color code of the given color.
+     */
     private String getColor(String color){
         return colorMap.get(color);
     }

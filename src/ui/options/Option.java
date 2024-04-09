@@ -3,6 +3,9 @@ package ui.options;
 import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
+/**
+ * An option class that can have a name, action, and other attributes such as locking options.
+ */
 public class Option{
     private String title;
     private Supplier<String> description;

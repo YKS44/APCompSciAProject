@@ -2,6 +2,9 @@ package products;
 
 import java.util.Random;
 
+/**
+ * The base class for all products. Contains informations such as price, quantity, and its product id.
+ */
 public abstract class Product {
     protected double price;
     protected int quantity;
@@ -25,6 +28,10 @@ public abstract class Product {
     public abstract double getDiscount();
     public abstract Product generateProduct();
 
+    /**
+     * Generates a random product id.
+     * @return A random 6 digit product id containing letters and numbers.
+     */
     public static String generateID(){
         Random rand = new Random();
 

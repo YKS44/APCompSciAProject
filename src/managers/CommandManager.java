@@ -18,6 +18,13 @@ public class CommandManager{
         scan = new Scanner(System.in);
     }
 
+    /**
+     * Registers a a new command.
+     * 
+     * @param key The unique class that the command can be run in.
+     * @param name The name of the command.
+     * @param action The action to run when the command is executed.
+     */
     public void addCommand(String key, String name, Consumer<String[]> action){
         if(commandMap.containsKey(key)){
             commandMap.get(key).put(name,action);
@@ -28,6 +35,11 @@ public class CommandManager{
         }
     }
 
+    /**
+     * Handles user input from a page.
+     * 
+     * @param page The page to handle the input from
+     */
     public void handleCommand(AbstractPage page){
         String input = scan.nextLine();
 

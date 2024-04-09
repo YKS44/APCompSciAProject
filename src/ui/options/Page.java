@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * A list of {@link Option Options}. 
+ */
 public class Page {
     private ArrayList<Option> options;
     private String title;

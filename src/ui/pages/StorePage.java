@@ -18,6 +18,9 @@ import products.Product;
 import products.Snack;
 import products.Vegetable;
 
+/**
+ * The store page containing the aisles for different types of food. 
+ */
 public class StorePage extends AbstractPage{
 
     private static StorePage instance = null;
@@ -41,6 +44,9 @@ public class StorePage extends AbstractPage{
         fillAisle();
     }
 
+    /**
+     * Fills the aisles with random products but with the same type of product for each row.
+     */
     private void fillAisle(){
         Random rand = new Random();
 
@@ -98,6 +104,12 @@ public class StorePage extends AbstractPage{
         LoginScreen.getInstance().startHomeScreen();
     }
 
+    /**
+     * Converts a string in the format of #,# to an int array containing the coordinates of the aisles.
+     * 
+     * @param location The string location to convert into a location.
+     * @return An int array with the location in the aisle.
+     */
     private int[] convertToLocation(String location) {
         String[] numbersArray = location.split(",");
         int[] intArray = new int[numbersArray.length];

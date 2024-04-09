@@ -1,11 +1,21 @@
 package ui.pages;
 
+/**
+ * The base class for all pages. A new page can be created easily with a heading, a body, and two submessages.
+ */
 public abstract class AbstractPage {
     private String heading = "";
     private String message1 = "";
     private String message2 = "";
 
+    /**
+     * Override this method and add print statements which will be the body of the page.
+     */
     public abstract void printPage();
+
+    /**
+     * Override this method to add commands to the {@link managers.CommandManager CommandManager}.
+     */
     protected abstract void setUpCommand();
     public void update() {}
 

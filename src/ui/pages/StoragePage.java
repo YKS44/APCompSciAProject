@@ -11,6 +11,9 @@ import managers.CommandManager;
 import managers.LoginManager;
 import managers.UIManager;
 
+/**
+ * Contains a list of "tickets" that the store owner can use to import more items.
+ */
 public class StoragePage extends AbstractPage{
 
     private static StoragePage instance = null;

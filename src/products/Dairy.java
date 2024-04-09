@@ -2,6 +2,7 @@ package products;
 
 import java.util.Random;
 
+
 public class Dairy extends FoodProduct implements Movable{
     public enum DairyType{
         Cheese,

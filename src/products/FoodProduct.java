@@ -1,5 +1,8 @@
 package products;
 
+/**
+ * A subclass of the {@link Product} class. Contains extra parameters such as the expired percent.
+ */
 public abstract class FoodProduct extends Product{
 
     protected double expiredPercent;

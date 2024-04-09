@@ -5,6 +5,9 @@ import java.util.Scanner;
 import managers.LoginManager;
 import managers.UIManager;
 
+/**
+ * The login page. First run when the program starts.
+ */
 public class LoginScreen {
     private static LoginScreen instance = null;
 
@@ -14,6 +17,9 @@ public class LoginScreen {
         loginPage();
     }
 
+    /**
+     * Prints the login page and handles the logins with a password.
+     */
     private void loginPage() {
         Scanner scan = new Scanner(System.in);
         boolean loginSuccessful = false;
@@ -42,10 +48,16 @@ public class LoginScreen {
         scan.close();
     }
 
+    /**
+     * Goes back to the login page.
+     */
     public void goBackToLoginPage(){
         loginPage();
     }
 
+    /**
+     * Starts the {@link ui.pages.MainPage MainPage}.
+     */
     public void startHomeScreen(){
         uim.printPage(MainPage.getInstance());
     }
