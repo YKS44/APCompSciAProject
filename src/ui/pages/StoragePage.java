@@ -1,6 +1,7 @@
 package ui.pages;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -57,7 +58,10 @@ public class StoragePage extends AbstractPage{
     @Override
     public void printPage() {
         System.out.print("Food Tickets: ");
-        for(Integer a : storage){
+        Iterator<Integer> iterator = storage.iterator();
+
+        while(iterator.hasNext()){
+            Integer a = iterator.next();
             System.out.print("|"+a.intValue()+"| ");
         }
         System.out.println();
