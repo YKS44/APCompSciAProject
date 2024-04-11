@@ -191,7 +191,7 @@ public class StorePage extends AbstractPage{
                 "move #,#, #,#       - Moves the product from loc1 to loc2\n"+
                 "buy #,#             - Buys product at that location\n"+
                 "cp #,# #            - Changes the price of the product\n"+
-                "total {quantity||sum} - Gets the total sum or quantity of the entire store"
+                "sum {quantity||sum} - Gets the total sum or quantity of the entire store"
                 );
         });
 
@@ -351,7 +351,7 @@ public class StorePage extends AbstractPage{
             }
         });
 
-        cmd.addCommand(getClass().getName(), "total", (arg) -> {
+        cmd.addCommand(getClass().getName(), "sum", (arg) -> {
             if(arg.length == 1){
                 if(LoginManager.getInstance().getCurrentlyLoggedIn().getAccountLevel().level >= AccountLevel.INTERN.level){
                     if(arg[0].equals("quantity")){
