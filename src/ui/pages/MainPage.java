@@ -104,6 +104,12 @@ public class MainPage extends AbstractPage{
         });
     }
 
+    /**
+     * Returns the description of the option.
+     * 
+     * @param idx The index of the option in {@link ui.options.Options Options}.
+     * @return The description of the option. If the index is out of bounds, it will return "Please type a correct argument." in red.
+     */
     private String getDescription(int idx){
         if(idx < 0 || idx > currentPage.getOptions().size()){
             return uim.getColoredText("red", "Please type a correct argument.");
@@ -112,6 +118,11 @@ public class MainPage extends AbstractPage{
         }
     }
 
+    /**
+     * Checks if a given string is an integer.
+     * @param s The string to check
+     * @return True if the given string is an integer. False otherwise. 
+     */
     private boolean isInteger(String s) {
         try { 
             Integer.parseInt(s); 

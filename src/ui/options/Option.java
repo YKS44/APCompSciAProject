@@ -47,18 +47,38 @@ public class Option{
         this.description = ()->description;
     }
 
+    /**
+     * Returns the title of the option.
+     * 
+     * @return The title of the option
+     */
     public String getTitle(){
     	return title;
     }
 
+    /**
+     * Returns the action of the option.
+     * 
+     * @return The action of the option.
+     */
     public SimpleAction getAction(){
 	    return action;   
     }
 
+    /**
+     * Checks whether or not the option is locked.
+     * 
+     * @return True is the option is locked, false otherwise.
+     */
     public boolean getIsUnlocked(){
         return  isUnlockedSupplier.getAsBoolean();
     }
 
+    /**
+     * Returns the description of the option. If the option is locked, it will return the locked description.
+     * 
+     * @return Description of the option.
+     */
     public String getDescription(){
         return isUnlockedSupplier.getAsBoolean() ? description.get() : lockDescription.get();
     }

@@ -23,6 +23,7 @@ public class MainPageOptionPath {
         }, description);
     }
 
+    //
     private static Option[] mainOptions = {
         new Option("Logout", () -> {game.goBackToLoginPage();}, "Logout"),
         new Option("Open Store page", () -> {StorePage.getInstance().openStorePage();},"Opens the store page"),
@@ -35,5 +36,5 @@ public class MainPageOptionPath {
         }, "Opens the storage page")
     };
 
-    public static Options mainPage = Options.buildPage(mainOptions, "Main Page");
+    public static Options mainPage = Options.buildOptions(mainOptions, "Main Page");
 }

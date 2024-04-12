@@ -39,18 +39,34 @@ public class StoragePage extends AbstractPage{
         this.setMessage2(uim.getColoredText("yellow", "Type 'help' for help"));
     }
 
+    /**
+     * Opens the storage page.
+     */
     public void openStoragePage(){
         uim.printPage(getInstance());
     }
 
+    /**
+     * Closes the storage page.
+     */
     public void closeStoragePage(){
         LoginScreen.getInstance().startHomeScreen();
     }
 
+    /**
+     * Returns the entire list of food tickets.
+     * 
+     * @return
+     */
     public List<Integer> getStorage(){
         return storage;
     }
 
+    /**
+     * Returns the number value of the last ticket in the storage.
+     * 
+     * @return Number value of the last ticket in the storage.
+     */
     public int getTicket(){
         return storage.remove(storage.size()-1);
     }
