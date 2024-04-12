@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * A list of {@link Option Options}. 
+ * Holder for multiple {@link Option Options}. 
  */
 public class Options {
     private ArrayList<Option> options;
