@@ -59,10 +59,6 @@ public class StorePage extends AbstractPage{
         }
     }
 
-    public Product getProductAt(int row, int col){
-        return aisle[row][col];
-    }
-
     /**
      * Removes a product at the given location
      * 
@@ -92,14 +88,26 @@ public class StorePage extends AbstractPage{
         }
     }
 
+    /**
+     * Changes the product at the location to the given product.
+     * 
+     * @param loc The location to change the product.
+     * @param product The product to change the product to.
+     */
     private void setProductAt(int[] loc, Product product){
         aisle[loc[0]][loc[1]] = product;
     }
 
+    /**
+     * Opens the Store page
+     */
     public void openStorePage(){ 
         uim.printPage(getInstance());
     }
 
+    /**
+     * Closes the Store page.
+     */
     public void closeStorePage(){
         LoginScreen.getInstance().startHomeScreen();
     }
@@ -120,6 +128,7 @@ public class StorePage extends AbstractPage{
 
         return intArray;
     }
+
 
     private Product getProductAt(int[] loc){
         try{
