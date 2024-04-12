@@ -35,5 +35,5 @@ public class MainPageOptionPath {
         }, "Opens the storage page")
     };
 
-    public static Page mainPage = Page.buildPage(mainOptions, "Main Page");
+    public static Options mainPage = Options.buildPage(mainOptions, "Main Page");
 }

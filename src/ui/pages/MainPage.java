@@ -11,12 +11,12 @@ import managers.LoginManager;
 import managers.UIManager;
 import ui.options.MainPageOptionPath;
 import ui.options.Option;
-import ui.options.Page;
+import ui.options.Options;
 
 public class MainPage extends AbstractPage{
     private static MainPage instance = null;  
-    private Page currentPage;
-    private List<Page> prev;
+    private Options currentPage;
+    private List<Options> prev;
     
     private UIManager uim = UIManager.getInstance();
 
@@ -54,7 +54,7 @@ public class MainPage extends AbstractPage{
 
         cmd.addCommand(getClass().getName(),"b", (arg) -> {
             if(!prev.isEmpty()){
-                Page back = prev.remove(prev.size()-1);
+                Options back = prev.remove(prev.size()-1);
                 currentPage = back;
             }else{
                 currentPage = MainPageOptionPath.mainPage;
