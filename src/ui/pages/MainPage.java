@@ -41,7 +41,7 @@ public class MainPage extends AbstractPage{
 
     @Override
     public void printPage() {
-        currentPage.printPage();
+        currentPage.printOptions();
     }
 
     @Override

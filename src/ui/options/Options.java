@@ -32,7 +32,7 @@ public class Options {
         return title;
     }
 
-    public void printPage(){
+    public void printOptions(){
         for(int i = 0; i < this.getOptions().size(); i++){
             Option option = this.getOptions().get(i);
             String title = option.getTitle();
