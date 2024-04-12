@@ -24,6 +24,11 @@ public class LoginManager {
 
     private Account currentlyLogin;
 
+    /**
+     * Returns the currently logged in account.
+     * 
+     * @return The currently logged in account.
+     */
     public Account getCurrentlyLoggedIn(){
         return currentlyLogin;
     }

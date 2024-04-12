@@ -5,12 +5,18 @@ public class Customer implements Account{
     private double moneyLeft;
     private AccountLevel level;
 
+    /**
+     * Creates a new instance of the customer with the given money.
+     * 
+     * @param moneyLeft The amount of money the customer has.
+     */
     public Customer(double moneyLeft){
         this.moneyLeft = moneyLeft;
         level = AccountLevel.CUSTOMER;
     }
 
     /**
+     * Returns the amount of money the customer has.
      * 
      * @return The money left for the customer
      */

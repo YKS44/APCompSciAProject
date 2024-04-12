@@ -24,8 +24,6 @@ public abstract class Product {
     
     public String getID(){return id;}
 
-    public void purchase(){}
-    public abstract double getDiscount();
     public abstract Product generateProduct();
 
     /**

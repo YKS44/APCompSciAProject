@@ -23,7 +23,7 @@ public class MainPageOptionPath {
         }, description);
     }
 
-    //
+    //The option path for the MainPage. 
     private static Option[] mainOptions = {
         new Option("Logout", () -> {game.goBackToLoginPage();}, "Logout"),
         new Option("Open Store page", () -> {StorePage.getInstance().openStorePage();},"Opens the store page"),

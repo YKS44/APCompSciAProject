@@ -13,16 +13,6 @@ public abstract class FoodProduct extends Product{
     }
 
     @Override
-    public void purchase() {
-
-    }
-
-    @Override
-    public double getDiscount() {
-        return 0.0; 
-    }
-
-    @Override
     public String toString(){
         String result = "";
 

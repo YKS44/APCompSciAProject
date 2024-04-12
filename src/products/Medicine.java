@@ -17,16 +17,6 @@ public class Medicine extends Product implements Movable{
     }
 
     @Override
-    public void purchase() {
-        
-    }
-
-    @Override
-    public double getDiscount() {
-        return 0.0;
-    }
-
-    @Override
     public int move() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'move'");
