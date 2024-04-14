@@ -19,8 +19,7 @@ public class Vegetable extends FoodProduct implements Movable{
 
     @Override
     public int move() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'move'");
+        return (int)Math.floor(quantity*expiredPercent);
     }
 
     @Override

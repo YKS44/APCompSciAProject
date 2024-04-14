@@ -19,7 +19,7 @@ public class Meat extends FoodProduct implements Movable{
 
     @Override
     public int move() {
-        return 0;
+        return (int)Math.floor(quantity*expiredPercent);
     }
     
     @Override

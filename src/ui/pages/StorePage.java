@@ -129,7 +129,7 @@ public class StorePage extends AbstractPage{
         return intArray;
     }
 
-
+    
     private Product getProductAt(int[] loc){
         try{
             Product product = aisle[loc[0]][loc[1]];

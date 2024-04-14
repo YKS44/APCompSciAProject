@@ -14,6 +14,7 @@ public class LoginManager {
     private static LoginManager instance = null;
 
     private HashMap<String, Account> loginMap = new HashMap<>(); 
+    private Account currentlyLogin;
 
     private LoginManager(){
         loginMap.put("customer", new Customer(100.0));
@@ -21,8 +22,6 @@ public class LoginManager {
         loginMap.put("worker", new Employee(AccountLevel.WORKER));
         loginMap.put("intern", new Employee(AccountLevel.INTERN));
     }
-
-    private Account currentlyLogin;
 
     /**
      * Returns the currently logged in account.

@@ -1,0 +1,431 @@
+==== CONFIGS ====		
+{
+    "base_path": "/Users/yuhyunkim/Documents/GitHub/APCompSciAProject",
+    "out": "/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc",
+    "javadoc_executable": "/Users/yuhyunkim/Library/Java/JavaVirtualMachines/openjdk-19.0.1/Contents/Home/bin/javadoc",
+    "exclude": [],
+    "raw_params": ""
+}
+
+==== COMMAND ====
+"/Users/yuhyunkim/Library/Java/JavaVirtualMachines/openjdk-19.0.1/Contents/Home/bin/javadoc" 
+	-sourcepath "/Users/yuhyunkim/Documents/GitHub/APCompSciAProject" 
+	-d "/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc" 
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/Main.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Account.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Customer.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Employee.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/CommandManager.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/LoginManager.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/UIManager.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Dairy.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Drink.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Fish.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/FoodProduct.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Meat.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Medicine.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Movable.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Snack.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Vegetable.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/MainPageOptionPath.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Options.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/SimpleAction.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/AbstractPage.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/LoginScreen.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/MainPage.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StoragePage.java"
+	"/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StorePage.java"
+
+
+==== JAVADOC OUTPUT ====
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/Main.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Account.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Customer.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Employee.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/CommandManager.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/LoginManager.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/UIManager.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Dairy.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Drink.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Fish.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/FoodProduct.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Meat.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Medicine.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Movable.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Snack.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Vegetable.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/MainPageOptionPath.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Options.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/SimpleAction.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/AbstractPage.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/LoginScreen.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/MainPage.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StoragePage.java...
+Loading source file /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StorePage.java...
+Constructing Javadoc information...
+Creating destination directory: "/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/"
+Building index for all the packages and classes...
+Standard Doclet version 19.0.1+10-21
+Building tree for all the packages and classes...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/pages/AbstractPage.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/AbstractPage.java:6: warning: use of default constructor, which does not provide a comment
+public abstract class AbstractPage {
+                ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/administration/Account.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Account.java:6: warning: no main description
+     * @return The account level of the account
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Account.java:3: warning: no comment
+public interface Account {
+       ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/administration/Account.AccountLevel.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Account.java:17: warning: no comment
+        BOSS(3);
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Account.java:14: warning: no comment
+        CUSTOMER(0),
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Account.java:15: warning: no comment
+        INTERN(1),
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Account.java:16: warning: no comment
+        WORKER(2),
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Account.java:19: warning: no comment
+        public int level;
+                   ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/managers/CommandManager.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/CommandManager.java:10: warning: no comment
+public class CommandManager{
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/CommandManager.java:60: warning: no comment
+    public static CommandManager getInstance(){
+                                 ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/administration/Customer.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Customer.java:31: warning: no @param for amount
+    public void reduceMoney(double amount){
+                ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Customer.java:3: warning: no comment
+public class Customer implements Account{
+       ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Dairy.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Dairy.java:6: warning: no comment
+public class Dairy extends FoodProduct implements Movable{
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Dairy.java:7: warning: no comment
+    public enum DairyType{
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Dairy.java:16: warning: no comment
+    public Dairy(double price, int quantity, String id, double expirationPercent, DairyType dairyType) {
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java:27: warning: no comment
+    public abstract Product generateProduct();
+                            ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Movable.java:7: warning: no comment
+    int move();
+        ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Dairy.DairyType.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Dairy.java:8: warning: no comment
+        Cheese,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Dairy.java:9: warning: no comment
+        Milk,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Dairy.java:10: warning: no comment
+        Yogurt,
+        ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Drink.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Drink.java:5: warning: no comment
+public class Drink extends FoodProduct implements Movable{
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Drink.java:7: warning: no comment
+    public enum DrinkType{
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Drink.java:17: warning: no comment
+    public Drink(double price, int quantity, String id, double expirationPercent, DrinkType drinkType) {
+           ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Drink.DrinkType.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Drink.java:9: warning: no comment
+        Soda,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Drink.java:10: warning: no comment
+        SoftDrink,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Drink.java:11: warning: no comment
+        Tea
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Drink.java:8: warning: no comment
+        Water,
+        ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/administration/Employee.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/administration/Employee.java:3: warning: no comment
+public class Employee implements Account{
+       ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Fish.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Fish.java:5: warning: no comment
+public class Fish extends FoodProduct{
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Fish.java:6: warning: no comment
+    public enum FishType{
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Fish.java:15: warning: no comment
+    public Fish(double price, int quantity, String id, double expirationPercent, FishType fishType) {
+           ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Fish.FishType.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Fish.java:7: warning: no comment
+        Cod,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Fish.java:10: warning: no comment
+        Crab
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Fish.java:8: warning: no comment
+        Salmon,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Fish.java:9: warning: no comment
+        Snake,
+        ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/FoodProduct.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/FoodProduct.java:8: warning: no comment
+    protected double expiredPercent;
+                     ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/FoodProduct.java:10: warning: no comment
+    public FoodProduct(double price, int quantity, String id, double expirationPercent) {
+           ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/managers/LoginManager.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/LoginManager.java:41: warning: no @param for password
+    public boolean login(String password){
+                   ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/LoginManager.java:53: warning: no comment
+    public static LoginManager getInstance(){
+                               ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/pages/LoginScreen.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/LoginScreen.java:11: warning: use of default constructor, which does not provide a comment
+public class LoginScreen {
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/LoginScreen.java:65: warning: no comment
+    public static LoginScreen getInstance(){
+                              ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/LoginScreen.java:16: warning: no comment
+    public void initializeStore(){
+                ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/Main.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/Main.java:3: warning: no comment
+public class Main {
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/Main.java:3: warning: use of default constructor, which does not provide a comment
+public class Main {
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/Main.java:4: warning: no comment
+    public static void main(String[] args){
+                       ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/pages/MainPage.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/MainPage.java:16: warning: no comment
+public class MainPage extends AbstractPage{
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/MainPage.java:137: warning: no comment
+    public static MainPage getInstance(){
+                           ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/options/MainPageOptionPath.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/MainPageOptionPath.java:39: warning: no comment
+    public static Options mainPage = Options.buildOptions(mainOptions, "Main Page");
+                          ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/MainPageOptionPath.java:15: warning: use of default constructor, which does not provide a comment
+public class MainPageOptionPath {
+       ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Meat.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Meat.java:5: warning: no comment
+public class Meat extends FoodProduct implements Movable{
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Meat.java:6: warning: no comment
+    public enum MeatType{
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Meat.java:15: warning: no comment
+    public Meat(double price, int quantity, String id, double expirationPercent, MeatType meatType) {
+           ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Meat.MeatType.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Meat.java:9: warning: no comment
+        Chicken,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Meat.java:7: warning: no comment
+        Cow,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Meat.java:8: warning: no comment
+        Pig,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Meat.java:10: warning: no comment
+        Sheep
+        ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Medicine.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Medicine.java:5: warning: no comment
+public class Medicine extends Product implements Movable{
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Medicine.java:6: warning: no comment
+    public enum MedicineType{
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Medicine.java:14: warning: no comment
+    public Medicine(double price, int quantity, String id, MedicineType medicineType) {
+           ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Medicine.MedicineType.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Medicine.java:9: warning: no comment
+        Depressants
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Medicine.java:8: warning: no comment
+        Sickness,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Medicine.java:7: warning: no comment
+        Sleep,
+        ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Movable.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/options/Option.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:19: warning: no @param for title
+	public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, String lockDescription, String description){
+	       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:19: warning: no @param for action
+	public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, String lockDescription, String description){
+	       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:19: warning: no @param for isUnlocked
+	public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, String lockDescription, String description){
+	       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:19: warning: no @param for lockDescription
+	public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, String lockDescription, String description){
+	       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:19: warning: no @param for description
+	public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, String lockDescription, String description){
+	       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:30: warning: no @param for title
+    public Option(String title, SimpleAction action, String description){
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:30: warning: no @param for action
+    public Option(String title, SimpleAction action, String description){
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:30: warning: no @param for description
+    public Option(String title, SimpleAction action, String description){
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:41: warning: no @param for title
+    public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, Supplier<String> lockDescription, String description)
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:41: warning: no @param for action
+    public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, Supplier<String> lockDescription, String description)
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:41: warning: no @param for isUnlocked
+    public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, Supplier<String> lockDescription, String description)
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:41: warning: no @param for lockDescription
+    public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, Supplier<String> lockDescription, String description)
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/Option.java:41: warning: no @param for description
+    public Option(String title, SimpleAction action, BooleanSupplier isUnlocked, Supplier<String> lockDescription, String description)
+           ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/options/Options.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Product.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java:9: warning: no comment
+    protected double price;
+                     ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java:10: warning: no comment
+    protected int quantity;
+                  ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java:13: warning: no comment
+    public Product(double price, int quantity, String id){
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java:25: warning: no comment
+    public String getID(){return id;}
+                  ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java:19: warning: no comment
+    public double getPrice() {return price;}
+                  ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java:22: warning: no comment
+    public int getQuantity(){return quantity;}
+               ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java:20: warning: no comment
+    public void setPrice(double price){this.price = price;}    
+                ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Product.java:23: warning: no comment
+    public void setQuantity(int quantity){this.quantity = quantity;}
+                ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/options/SimpleAction.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/options/SimpleAction.java:7: warning: no comment
+    void execute();
+         ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Snack.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Snack.java:5: warning: no comment
+public class Snack extends FoodProduct implements Movable{
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Snack.java:6: warning: no comment
+    public enum SnackType{
+           ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Snack.java:14: warning: no comment
+    public Snack(double price, int quantity, String id, double expirationPercent, SnackType snackType) {
+           ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Snack.SnackType.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Snack.java:8: warning: no comment
+        Candy,
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Snack.java:9: warning: no comment
+        Chips
+        ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/products/Snack.java:7: warning: no comment
+        Chocolate,
+        ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/pages/StoragePage.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StoragePage.java:59: warning: no description for @return
+     * @return
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StoragePage.java:111: warning: no comment
+    public static StoragePage getInstance(){
+                              ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/pages/StorePage.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StorePage.java:67: warning: no @param for loc
+    public boolean removeProduct(int[] loc){
+                   ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StorePage.java:81: warning: no @param for loc
+    public boolean addProduct(int[] loc, Product product){
+                   ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StorePage.java:81: warning: no @param for product
+    public boolean addProduct(int[] loc, Product product){
+                   ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StorePage.java:32: warning: no comment
+    public Product[][] aisle = new Product[section.length][5]; //dairy, meat, vegetable, drinks, snack, medicine, fish
+                       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StorePage.java:30: warning: no comment
+    public Product[] section = {new Dairy(0,0,getHeading(), 0, null), new Meat(0, 0, getMessage1(), 0, null), new Vegetable(0, 0, getHeading(), 0, null), new Drink(0, 0, getHeading(), 0, null), new Snack(0, 0, getHeading(), 0, null), new Medicine(0, 0, getHeading(), null), new Fish(0, 0, getHeading(), 0, null)};
+                     ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/ui/pages/StorePage.java:143: warning: no comment
+    public static StorePage getInstance(){
+                            ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/managers/UIManager.html...
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/UIManager.java:81: warning: no main description
+     * @param color The color to convert the text into.
+       ^
+/Users/yuhyunkim/Documents/GitHub/APCompSciAProject/src/managers/UIManager.java:7: warning: no comment
+public class UIManager{
+       ^
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Vegetable.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/Vegetable.VegetableType.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/package-summary.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/package-tree.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/administration/package-summary.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/administration/package-tree.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/managers/package-summary.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/managers/package-tree.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/package-summary.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/products/package-tree.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/options/package-summary.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/options/package-tree.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/pages/package-summary.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/ui/pages/package-tree.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/overview-tree.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/index.html...
+Building index for all classes...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/allclasses-index.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/allpackages-index.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/index-all.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/search.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/overview-summary.html...
+Generating /Users/yuhyunkim/Documents/GitHub/APCompSciAProject/javadoc/help-doc.html...
+100 warnings
+
+
