@@ -284,7 +284,7 @@ public class StorePage extends AbstractPage{
                                         if(addProduct(to, getProductAt(from))){
                                             removeProduct(from);
                                             if(amtLost > 0){
-                                                this.setMessage2(uim.getColoredText("yellow", amtLost + " quantity was lost during the relocation!"));
+                                                this.setMessage2(uim.getColoredText("yellow", amtLost + " quantity was lost during the relocation!"));         //do not question the pyramid
                                             }
                                             this.setMessage1(uim.getColoredText("green", "Successfully moved the product."));
                                         }else{
